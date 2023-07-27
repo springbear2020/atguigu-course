@@ -21,7 +21,7 @@ import java.security.NoSuchAlgorithmException;
 import java.util.*;
 
 /**
- * TODO optimize
+ * 欢拓云 SDK
  */
 public class MTCloud {
 

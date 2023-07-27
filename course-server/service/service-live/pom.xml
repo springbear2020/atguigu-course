@@ -18,6 +18,16 @@
 
     <dependencies>
         <dependency>
+            <groupId>cn.edu.whut.springbear</groupId>
+            <artifactId>client-vod</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>cn.edu.whut.springbear</groupId>
+            <artifactId>client-user</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+        <dependency>
             <groupId>commons-httpclient</groupId>
             <artifactId>commons-httpclient</artifactId>
         </dependency>
@@ -26,10 +36,14 @@
             <artifactId>json-lib</artifactId>
             <classifier>jdk15</classifier>
         </dependency>
-        <dependency>
-            <groupId>cn.edu.whut.springbear</groupId>
-            <artifactId>client-vod</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-        </dependency>
     </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
 </project>

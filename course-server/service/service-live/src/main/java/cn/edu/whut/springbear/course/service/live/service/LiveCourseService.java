@@ -3,6 +3,7 @@ package cn.edu.whut.springbear.course.service.live.service;
 import cn.edu.whut.springbear.course.common.model.pojo.live.LiveCourse;
 import cn.edu.whut.springbear.course.common.model.vo.live.LiveCourseFormVo;
 import cn.edu.whut.springbear.course.common.model.vo.live.LiveCourseVo;
+import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.IService;
 
@@ -64,4 +65,12 @@ public interface LiveCourseService extends IService<LiveCourse> {
      * @return 直播课程信息
      */
     List<LiveCourseVo> getLatelyList();
+
+    /**
+     * 从欢拓云平台获取直播课程的访问 token
+     *
+     * @param courseId 课程 ID
+     * @return null：获取失败
+     */
+    JSONObject getPlayAuth(Long courseId);
 }

@@ -47,7 +47,7 @@ CREATE TABLE `order_detail` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `idx_oid_cid` (`order_id`,`course_id`),
   KEY `idx_cid` (`course_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb3 COMMENT='订单明细 订单明细';
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb3 COMMENT='订单明细 订单明细';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -56,7 +56,7 @@ CREATE TABLE `order_detail` (
 
 LOCK TABLES `order_detail` WRITE;
 /*!40000 ALTER TABLE `order_detail` DISABLE KEYS */;
-INSERT INTO `order_detail` (`id`, `course_id`, `course_name`, `cover`, `order_id`, `user_id`, `origin_amount`, `coupon_reduce`, `final_amount`, `session_id`, `create_time`, `update_time`, `is_deleted`) VALUES (1,1,'Spark','http://47.93.148.192:9000/gmall/20211122/1504320cbe2b246514.jpg',1,1,1000.00,0.00,1000.00,NULL,'2021-11-22 05:38:47','2022-10-28 13:35:58',0),(2,2,'Java 基础','https://online-teach-file.oss-cn-beijing.aliyuncs.com/cover/2021/08/10/9452b057-6ad6-4600-891e-b168083fee4d.jpg',2,1,23800.00,0.00,23800.00,NULL,'2021-11-23 02:09:08','2022-10-28 13:36:57',0),(3,10,'Vue','http://47.93.148.192:9000/gmall/20211122/1504320cbe2b246514.jpg',3,25,1000.00,0.00,1000.00,NULL,'2021-11-23 02:54:51','2022-10-28 13:36:57',0),(4,12,'SpringMVC','https://online-teach-file.oss-cn-beijing.aliyuncs.com/cover/2021/08/09/e4ee03d7-52bd-41ca-99f9-04dc23250a71.jpg',4,1,22800.00,0.00,22800.00,NULL,'2021-11-23 02:57:27','2022-10-28 13:36:57',0),(5,14,'JavaWeb','http://47.93.148.192:9000/gmall/20211122/1504320cbe2b246514.jpg',5,27,1000.00,0.00,1000.00,NULL,'2021-11-23 02:57:52','2022-10-28 13:36:57',0),(6,25,'MyBatis','https://online-teach-file.oss-cn-beijing.aliyuncs.com/cover/2021/08/09/a16c5694-3037-4330-b1c5-438052081fcb.jpg',6,1,19800.00,0.00,19800.00,NULL,'2021-11-26 00:56:07','2022-10-28 13:36:57',0),(7,2,'Java 基础','http://47.93.148.192:9000/gmall/20211122/1504320cbe2b246514.jpg',7,29,1000.00,0.00,1000.00,NULL,'2021-11-26 02:35:46','2022-10-28 13:36:57',0),(8,10,'Vue','http://47.93.148.192:9000/gmall/20211122/1504320cbe2b246514.jpg',8,32,1000.00,0.00,1000.00,NULL,'2021-12-28 07:25:01','2022-10-28 13:36:57',0);
+INSERT INTO `order_detail` (`id`, `course_id`, `course_name`, `cover`, `order_id`, `user_id`, `origin_amount`, `coupon_reduce`, `final_amount`, `session_id`, `create_time`, `update_time`, `is_deleted`) VALUES (14,12,'SpringMVC','https://course-1308741720.cos.ap-chongqing.myqcloud.com/2022/10/28/6967fff1544d4b629af1e61b6526d8d9.png',14,34,99.99,0.00,99.99,NULL,'2022-10-31 00:28:59','2022-10-31 00:28:59',0),(15,10,'Vue','https://course-1308741720.cos.ap-chongqing.myqcloud.com/2022/10/28/56ff3ac7b80e42d196d2ea39cad97fa3.png',15,34,66.66,0.00,66.66,NULL,'2022-10-31 00:57:26','2022-10-31 00:57:26',0),(16,1,'Spark','https://course-1308741720.cos.ap-chongqing.myqcloud.com/2022/10/28/5866d3352bb046db987561fca52ae234.png',16,34,9.90,0.00,9.90,NULL,'2022-10-31 01:01:34','2022-10-31 01:01:34',0);
 /*!40000 ALTER TABLE `order_detail` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -87,7 +87,7 @@ CREATE TABLE `order_info` (
   `is_deleted` tinyint NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `idx_uid` (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb3 COMMENT='订单表 订单表';
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb3 COMMENT='订单表 订单表';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -96,7 +96,7 @@ CREATE TABLE `order_info` (
 
 LOCK TABLES `order_info` WRITE;
 /*!40000 ALTER TABLE `order_info` DISABLE KEYS */;
-INSERT INTO `order_info` (`id`, `user_id`, `nick_name`, `phone`, `origin_amount`, `coupon_reduce`, `final_amount`, `order_status`, `out_trade_no`, `trade_body`, `session_id`, `province`, `pay_time`, `expire_time`, `create_time`, `update_time`, `is_deleted`) VALUES (1,1,'鲸落✗','15010546384',1000.00,500.00,500.00,'1','20211122213847830','JAVA之Mysql基础',NULL,'成都','2021-11-22 21:39:12',NULL,'2021-11-22 05:38:47','2022-10-28 13:31:34',0),(2,1,'Mr.Winte','15010546384',23800.00,0.00,23800.00,'1','20211123180908744','尚硅谷大数据技术之Sqoop',NULL,'成都','2021-11-23 18:09:32',NULL,'2021-11-23 02:09:08','2022-10-28 13:31:34',0),(3,25,'晨','13810168266',1000.00,0.00,1000.00,'1','20211123185451570','JAVA之Mysql基础',NULL,'','2021-11-23 18:55:04',NULL,'2021-11-23 02:54:51','2021-11-23 02:55:04',0),(4,1,'晴天','15069352568',22800.00,500.00,22300.00,'0','20211123185726513','Java精品课程',NULL,'成都',NULL,NULL,'2021-11-23 02:57:26','2021-11-23 02:57:26',0),(5,27,'暴走的橙子','17512080612',1000.00,500.00,500.00,'0','20211123185752103','JAVA之Mysql基础',NULL,'',NULL,NULL,'2021-11-23 02:57:52','2022-10-28 13:31:34',0),(6,1,'晴天','13810168266',19800.00,0.00,19800.00,'1','20211126165606808','尚硅谷大数据技术之HBase（2019新版）',NULL,'成都','2021-11-26 16:56:25',NULL,'2021-11-26 00:56:07','2022-10-28 13:29:30',0),(7,29,'敖 丙','13500009888',1000.00,0.00,1000.00,'1','20211126183546799','JAVA之Mysql基础',NULL,'','2021-11-26 18:36:14',NULL,'2021-11-26 02:35:46','2022-10-28 13:31:34',0),(8,32,'大安全家','13500009888',1000.00,0.00,1000.00,'0','20211228152501327','JAVA之Mysql基础',NULL,'',NULL,NULL,'2021-12-28 07:25:01','2022-10-28 13:31:34',0);
+INSERT INTO `order_info` (`id`, `user_id`, `nick_name`, `phone`, `origin_amount`, `coupon_reduce`, `final_amount`, `order_status`, `out_trade_no`, `trade_body`, `session_id`, `province`, `pay_time`, `expire_time`, `create_time`, `update_time`, `is_deleted`) VALUES (14,34,'你不懂我&我不怪你',NULL,99.99,10.24,89.75,'PAID','20221031082859428205','SpringMVC',NULL,'','2022-11-03 10:58:17',NULL,'2022-10-31 00:28:59','2022-11-03 02:57:13',0),(15,34,'你不懂我&我不怪你',NULL,66.66,8.15,58.51,'PAID','20221031085726429604','Vue',NULL,'','2022-11-03 11:01:10',NULL,'2022-10-31 00:57:26','2022-10-31 01:01:20',0),(16,34,'你不懂我&我不怪你',NULL,9.90,0.00,9.90,'','20221031090134947527','Spark',NULL,'','2022-10-31 09:15:39',NULL,'2022-10-31 01:01:34','2022-11-03 02:57:13',0);
 /*!40000 ALTER TABLE `order_info` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -133,7 +133,6 @@ CREATE TABLE `payment_info` (
 
 LOCK TABLES `payment_info` WRITE;
 /*!40000 ALTER TABLE `payment_info` DISABLE KEYS */;
-INSERT INTO `payment_info` (`id`, `out_trade_no`, `order_id`, `user_id`, `alipay_trade_no`, `total_amount`, `trade_body`, `payment_type`, `payment_status`, `callback_content`, `callback_time`, `create_time`, `update_time`, `is_deleted`) VALUES (1,'20211122213847830',1,1,NULL,0.01,'JAVA之Mysql基础','2','2','{transaction_id=4200001236202111223264279278, nonce_str=60QD7Oevf9wU02zc, trade_state=SUCCESS, bank_type=OTHERS, openid=oQTXC56A4KDJuNRgj7hSoOqbxtDw, sign=1D685646F5D4D5BB4AEA9A3285A322B0, return_msg=OK, fee_type=CNY, mch_id=1481962542, cash_fee=1, out_trade_no=20211122213847830, cash_fee_type=CNY, appid=wxf913bfa3a2c7eeeb, total_fee=1, trade_state_desc=支付成功, trade_type=JSAPI, result_code=SUCCESS, attach=, time_end=20211122213909, is_subscribe=Y, return_code=SUCCESS}','2021-11-22 21:39:12','2021-11-22 13:38:55','2021-11-22 05:39:12',0),(2,'20211123180908744',2,1,NULL,0.01,'尚硅谷大数据技术之Sqoop','2','2','{transaction_id=4200001120202111230211882387, nonce_str=wn4XulMGtpBWmHvP, trade_state=SUCCESS, bank_type=OTHERS, openid=oQTXC56A4KDJuNRgj7hSoOqbxtDw, sign=0F505EC786ECC4C649578D8A71DE139C, return_msg=OK, fee_type=CNY, mch_id=1481962542, cash_fee=1, out_trade_no=20211123180908744, cash_fee_type=CNY, appid=wxf913bfa3a2c7eeeb, total_fee=1, trade_state_desc=支付成功, trade_type=JSAPI, result_code=SUCCESS, attach=, time_end=20211123180927, is_subscribe=Y, return_code=SUCCESS}','2021-11-23 18:09:32','2021-11-23 10:09:15','2021-11-23 02:09:32',0),(3,'20211123185451570',3,25,NULL,0.01,'JAVA之Mysql基础','2','2','{transaction_id=4200001123202111233106099225, nonce_str=VNHOOhJVvGW8V0xo, trade_state=SUCCESS, bank_type=OTHERS, openid=oQTXC5zyE9p-gp7T_qUnFlv8VbB0, sign=CE0049BC9A1922CF70F423AC406BEB88, return_msg=OK, fee_type=CNY, mch_id=1481962542, cash_fee=1, out_trade_no=20211123185451570, cash_fee_type=CNY, appid=wxf913bfa3a2c7eeeb, total_fee=1, trade_state_desc=支付成功, trade_type=JSAPI, result_code=SUCCESS, attach=, time_end=20211123185502, is_subscribe=N, return_code=SUCCESS}','2021-11-23 18:55:04','2021-11-23 10:54:53','2021-11-23 02:55:04',0),(4,'20211123185726513',4,1,NULL,0.01,'Java精品课程','2','1',NULL,NULL,'2021-11-23 10:57:30','2021-11-23 02:57:30',0),(5,'20211123185752103',5,27,NULL,0.01,'JAVA之Mysql基础','2','1',NULL,NULL,'2021-11-23 10:57:53','2021-11-23 02:57:53',0),(6,'20211126165606808',6,1,NULL,0.01,'尚硅谷大数据技术之HBase（2019新版）','2','2','{transaction_id=4200001146202111266807786474, nonce_str=xTJGeq7F0Dz0c0U8, trade_state=SUCCESS, bank_type=OTHERS, openid=oQTXC56A4KDJuNRgj7hSoOqbxtDw, sign=201D5B989A83376A3AA34DFDAB457CFF, return_msg=OK, fee_type=CNY, mch_id=1481962542, cash_fee=1, out_trade_no=20211126165606808, cash_fee_type=CNY, appid=wxf913bfa3a2c7eeeb, total_fee=1, trade_state_desc=支付成功, trade_type=JSAPI, result_code=SUCCESS, attach=, time_end=20211126165619, is_subscribe=Y, return_code=SUCCESS}','2021-11-26 16:56:24','2021-11-26 08:56:09','2021-11-26 00:56:24',0),(7,'20211126183546799',7,29,NULL,0.01,'JAVA之Mysql基础','2','2','{transaction_id=4200001228202111261700574727, nonce_str=pzhJ1kkbfSwFMslY, trade_state=SUCCESS, bank_type=OTHERS, openid=oQTXC51A-QwGey9bsMH0rwP6pj0g, sign=5B8528ED454C09E24F4297A97345FD87, return_msg=OK, fee_type=CNY, mch_id=1481962542, cash_fee=1, out_trade_no=20211126183546799, cash_fee_type=CNY, appid=wxf913bfa3a2c7eeeb, total_fee=1, trade_state_desc=支付成功, trade_type=JSAPI, result_code=SUCCESS, attach=, time_end=20211126183611, is_subscribe=Y, return_code=SUCCESS}','2021-11-26 18:36:14','2021-11-26 10:35:48','2021-11-26 02:36:13',0);
 /*!40000 ALTER TABLE `payment_info` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -146,4 +145,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-10-29  8:02:07
+-- Dump completed on 2022-11-03 11:06:57

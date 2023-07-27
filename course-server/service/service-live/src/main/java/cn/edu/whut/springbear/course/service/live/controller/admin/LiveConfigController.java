@@ -1,4 +1,4 @@
-package cn.edu.whut.springbear.course.service.live.controller;
+package cn.edu.whut.springbear.course.service.live.controller.admin;
 
 
 import cn.edu.whut.springbear.course.common.model.vo.live.LiveCourseConfigVo;

@@ -1,4 +1,4 @@
-package cn.edu.whut.springbear.course.service.live.controller;
+package cn.edu.whut.springbear.course.service.live.controller.admin;
 
 
 import cn.edu.whut.springbear.course.common.model.pojo.live.LiveCourse;
@@ -47,14 +47,6 @@ public class LiveCourseController {
     public Result updateById(@RequestBody LiveCourseFormVo liveCourseVo) {
         return liveCourseService.updateLiveCourse(liveCourseVo) ? Result.success("更新直播课程信息成功", null) : Result.fail("更新直播课程信息失败", null);
     }
-
-    // TODO remove the next method?
-//    @ApiOperation("查询直播课程")
-//    @GetMapping("get/{id}")
-//    public Result get(@PathVariable Long id) {
-//        LiveCourse liveCourse = liveCourseService.getById(id);
-//        return liveCourse == null ? Result.fail("查询直播课程失败", null) : Result.success("查询直播课程成功", liveCourse);
-//    }
 
     @ApiOperation("查询直播课程")
     @GetMapping("get")

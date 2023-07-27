@@ -13,7 +13,7 @@ import org.springframework.context.annotation.ComponentScan;
 @SpringBootApplication
 @EnableDiscoveryClient
 @ComponentScan("cn.edu.whut.springbear.course")
-@EnableFeignClients("cn.edu.whut.springbear.course.client.vod")
+@EnableFeignClients("cn.edu.whut.springbear.course.client")
 public class LiveServiceApplication {
     public static void main(String[] args) {
         SpringApplication.run(LiveServiceApplication.class, args);

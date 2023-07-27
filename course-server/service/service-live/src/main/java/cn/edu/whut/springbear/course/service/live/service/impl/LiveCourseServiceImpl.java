@@ -1,14 +1,17 @@
 package cn.edu.whut.springbear.course.service.live.service.impl;
 
+import cn.edu.whut.springbear.course.client.user.UserFeignClient;
 import cn.edu.whut.springbear.course.client.vod.TeacherFeignClient;
 import cn.edu.whut.springbear.course.common.model.pojo.live.LiveCourse;
 import cn.edu.whut.springbear.course.common.model.pojo.live.LiveCourseAccount;
 import cn.edu.whut.springbear.course.common.model.pojo.live.LiveCourseDescription;
+import cn.edu.whut.springbear.course.common.model.pojo.user.UserInfo;
 import cn.edu.whut.springbear.course.common.model.pojo.vod.Teacher;
 import cn.edu.whut.springbear.course.common.model.vo.live.LiveCourseFormVo;
 import cn.edu.whut.springbear.course.common.model.vo.live.LiveCourseVo;
 import cn.edu.whut.springbear.course.common.util.DateUtils;
 import cn.edu.whut.springbear.course.common.util.exception.CourseException;
+import cn.edu.whut.springbear.course.common.util.interceptor.AuthContextHolder;
 import cn.edu.whut.springbear.course.service.live.mapper.LiveCourseMapper;
 import cn.edu.whut.springbear.course.service.live.service.LiveCourseAccountService;
 import cn.edu.whut.springbear.course.service.live.service.LiveCourseDescriptionService;
@@ -44,6 +47,8 @@ public class LiveCourseServiceImpl extends ServiceImpl<LiveCourseMapper, LiveCou
     private LiveCourseDescriptionService liveCourseDescriptionService;
     @Autowired
     private LiveCourseAccountService liveCourseAccountService;
+    @Autowired
+    private UserFeignClient userFeignClient;
 
     @Override
     public Page<LiveCourse> getPageData(Long current, Long size) {
@@ -188,6 +193,32 @@ public class LiveCourseServiceImpl extends ServiceImpl<LiveCourseMapper, LiveCou
             liveCourseVo.setLiveStatus(this.liveStatus(liveCourseVo));
         }
         return null;
+    }
+
+    @Override
+    public JSONObject getPlayAuth(Long courseId) {
+        Long userId = AuthContextHolder.getUserId();
+        LiveCourse liveCourse = this.getById(courseId);
+        UserInfo userInfo = userFeignClient.getUserById(userId);
+
+        // 请求欢拓云平台获取直播课程 token 信息
+        String res;
+        try {
+            HashMap<Object, Object> options = new HashMap<>();
+            res = mtCloud.courseAccess(liveCourse.getCourseId().toString(), userId.toString(), userInfo.getNickName(), MTCloud.ROLE_USER, 80 * 80 * 80, options);
+        } catch (Exception e) {
+            throw new CourseException(30000, e.getMessage());
+        }
+
+        // 解析欢拓云的课程 token 获取结果
+        JSONObject data = JSON.parseObject(res);
+        Integer code = data.getInteger("code");
+        String msg = data.getString("msg");
+        data = data.getObject("data", JSONObject.class);
+        if (code != MTCloud.CODE_SUCCESS) {
+            throw new CourseException(30000, msg);
+        }
+        return data;
     }
 
     /**

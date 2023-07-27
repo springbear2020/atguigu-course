@@ -140,4 +140,11 @@ public class CourseServiceImpl extends ServiceImpl<CourseMapper, Course> impleme
         // 删除课程
         return baseMapper.deleteById(courseId) == 1;
     }
+
+    @Override
+    public List<Course> listCoursesByName(String courseName) {
+        QueryWrapper<Course> queryWrapper = new QueryWrapper<>();
+        queryWrapper.like("title", courseName);
+        return baseMapper.selectList(queryWrapper);
+    }
 }

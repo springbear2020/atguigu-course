@@ -21,5 +21,10 @@
             <groupId>com.github.binarywang</groupId>
             <artifactId>weixin-java-mp</artifactId>
         </dependency>
+        <dependency>
+            <groupId>cn.edu.whut.springbear</groupId>
+            <artifactId>client-course</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
     </dependencies>
 </project>

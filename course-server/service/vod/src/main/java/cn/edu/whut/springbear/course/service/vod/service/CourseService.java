@@ -6,6 +6,8 @@ import cn.edu.whut.springbear.course.common.model.vo.vod.CourseQueryVo;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.IService;
 
+import java.util.List;
+
 /**
  * <p>
  * 课程 服务类
@@ -64,4 +66,12 @@ public interface CourseService extends IService<Course> {
      * @return true：删除成功
      */
     boolean deleteCourse(Long courseId);
+
+    /**
+     * 根据课程名查询课程（模糊查询）
+     *
+     * @param courseName 课程名称
+     * @return 课程列表
+     */
+    List<Course> listCoursesByName(String courseName);
 }

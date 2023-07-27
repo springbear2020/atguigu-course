@@ -13,6 +13,8 @@ import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 /**
  * <p>
  * 课程 前端控制器
@@ -69,6 +71,12 @@ public class CourseController {
             @ApiParam(name = "courseQueryVo", value = "额外查询条件") CourseQueryVo courseQueryVo) {
         Page<Course> coursePage = courseService.listCoursePageData(pageNum, pageSize, courseQueryVo);
         return Result.success("查询课程分页数据成功", coursePage);
+    }
+
+    @ApiOperation("查询课程（模糊查询）")
+    @GetMapping("list/{courseName}")
+    public List<Course> listCoursesByName(@ApiParam(name = "courseName", value = "课程名称", required = true) @PathVariable String courseName) {
+        return courseService.listCoursesByName(courseName);
     }
 }
 

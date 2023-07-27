@@ -1,5 +1,6 @@
 package cn.edu.whut.springbear.course.service.wechat.controller;
 
+import cn.edu.whut.springbear.course.common.util.Result;
 import cn.edu.whut.springbear.course.service.wechat.service.MessageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -32,5 +33,10 @@ public class MessageController {
         Map<String, Object> response = messageService.parseResponse(request);
         // 构建给公众号客户端的响应消息
         return messageService.buildMessage(response);
+    }
+
+    @GetMapping("push")
+    public Result pushPayMessage() {
+        return messageService.pushPayMessage() ? Result.success("推送订单消息成功", null) : Result.fail("推送订单消息失败", null);
     }
 }

@@ -12,5 +12,8 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * @since 2022-10-25
  */
 public interface UserInfoService extends IService<UserInfo> {
-
+    /**
+     * 通过 openId 查询用户
+     */
+    UserInfo getUserByOpenId(String openId);
 }

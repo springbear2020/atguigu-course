@@ -60,7 +60,7 @@ public class MenuServiceImpl extends ServiceImpl<MenuMapper, Menu> implements Me
                 // 链接型子菜单
                 if ("view".equals(menu.getType())) {
                     view.put("name", menu.getName());
-                    view.put("url", "http://ggkt2.vipgz1.91tunnel.com/#" + menu.getUrl());
+                    view.put("url", menu.getUrl());
                 } else {
                     // 事件型子菜单
                     view.put("name", menu.getName());

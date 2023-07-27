@@ -23,4 +23,11 @@ public interface MessageService {
      * @return 响应给微信公众号的字符串消息
      */
     String buildMessage(Map<String, Object> map);
+
+    /**
+     * 推送订单消息
+     *
+     * @return true：推送成功
+     */
+    boolean pushPayMessage();
 }

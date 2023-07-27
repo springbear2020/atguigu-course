@@ -17,9 +17,15 @@
 
       <!-- 上传视频 -->
       <el-form-item label="上传视频">
-        <el-upload ref="upload" :auto-upload="false" :on-success="handleUploadSuccess" :on-error="handleUploadError" :on-exceed="handleUploadExceed" :file-list="fileList" :limit="1" :before-remove="handleBeforeRemove" :on-remove="handleOnRemove" :action="url+'/admin/vod/upload'">
+        <el-upload ref="upload" :auto-upload="false" :on-success="handleUploadSuccess" :on-error="handleUploadError"
+                   :on-exceed="handleUploadExceed" :file-list="fileList" :limit="1" :before-remove="handleBeforeRemove"
+                   :on-remove="handleOnRemove" :action="url+'/admin/vod/upload'"
+        >
           <el-button slot="trigger" size="small" type="primary">选择视频</el-button>
-          <el-button :disabled="uploadBtnDisabled" style="margin-left: 10px;" size="small" type="success" @click="submitUpload()">上传</el-button>
+          <el-button :disabled="uploadBtnDisabled" style="margin-left: 10px;" size="small" type="success"
+                     @click="submitUpload()"
+          >上传
+          </el-button>
         </el-upload>
       </el-form-item>
     </el-form>
@@ -34,7 +40,7 @@
 
 <script>
 import videoApi from '@/api/vod/video'
-import vodApi  from '@/api/vod/vod'
+import vodApi from '@/api/vod/vod'
 
 import { mapGetters } from 'vuex'
 

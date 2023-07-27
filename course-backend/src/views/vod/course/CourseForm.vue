@@ -19,7 +19,9 @@
         </el-select>
         <!-- 二级分类 -->
         <el-select v-model="courseInfo.subjectId" placeholder="请选择">
-          <el-option v-for="subject in subjectLevelTwoList" :key="subject.id" :label="subject.title" :value="subject.id"/>
+          <el-option v-for="subject in subjectLevelTwoList" :key="subject.id" :label="subject.title"
+                     :value="subject.id"
+          />
         </el-select>
       </el-form-item>
       <el-form-item label="总课时">
@@ -31,7 +33,9 @@
       </el-form-item>
       <!-- 课程封面 -->
       <el-form-item label="课程封面">
-        <el-upload :show-file-list="false" :on-success="handleCoverSuccess" :before-upload="beforeCoverUpload" :on-error="handleCoverError" :action="url+'/admin/vod/transfer/upload'" class="cover-uploader">
+        <el-upload :show-file-list="false" :on-success="handleCoverSuccess" :before-upload="beforeCoverUpload"
+                   :on-error="handleCoverError" :action="url+'/admin/vod/transfer/upload'" class="cover-uploader"
+        >
           <img v-if="courseInfo.cover" :src="courseInfo.cover" alt="课程封面">
           <i v-else class="el-icon-plus avatar-uploader-icon"/>
         </el-upload>
@@ -188,7 +192,7 @@ export default {
           })
         })
       })
-    },
+    }
   }
 }
 </script>

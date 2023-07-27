@@ -1,9 +1,12 @@
 <template>
   <div class="dashboard-container">
-    <div class="dashboard-text">欢迎 {{ name }} 使用在线课堂！</div>
+    <div class="dashboard-text" style="text-align: center">欢迎【{{ name }}】管理员</div>
     <ol>
       <li><router-link to="/teacher">讲师管理</router-link></li>
       <li><router-link to="/course">课程管理</router-link></li>
+      <li><router-link to="/order">订单管理</router-link></li>
+      <li><router-link to="/activity">营销管理</router-link></li>
+      <li><router-link to="/wechat">公众号管理</router-link></li>
     </ol>
   </div>
 </template>

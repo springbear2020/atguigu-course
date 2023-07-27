@@ -10,7 +10,9 @@
           </el-select>
           <!-- 二级分类 -->
           <el-select v-model="searchObj.subjectId" placeholder="请选择">
-            <el-option v-for="subject in subjectLevelTwoList" :key="subject.id" :label="subject.title" :value="subject.id"/>
+            <el-option v-for="subject in subjectLevelTwoList" :key="subject.id" :label="subject.title"
+                       :value="subject.id"
+            />
           </el-select>
         </el-form-item>
         <!-- 标题 -->
@@ -75,7 +77,10 @@
       </el-table-column>
       <el-table-column prop="status" label="课程状态" width="100" align="center">
         <template slot-scope="scope">
-          <el-tag :type="scope.row.status === 0 ? 'warning' : 'success'">{{scope.row.status === 0 ? '未发布' : '已发布' }}</el-tag>
+          <el-tag :type="scope.row.status === 0 ? 'warning' : 'success'">{{
+              scope.row.status === 0 ? '未发布' : '已发布'
+            }}
+          </el-tag>
         </template>
       </el-table-column>
       <el-table-column label="发布时间" width="140" align="center">

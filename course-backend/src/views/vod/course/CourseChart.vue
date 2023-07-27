@@ -44,7 +44,7 @@ export default {
   methods: {
     countVisitors() {
       api.findCount(this.courseId, this.startDate, this.endDate).then(response => {
-        let visitors = response.data;
+        let visitors = response.data
         if (visitors == null || visitors.length <= 0) {
           this.$message.info(response.message)
           return

@@ -1,33 +1,43 @@
 <template>
   <div class="app-container">
     <el-form label-width="120px">
+
       <el-form-item label="优惠券名称">
         <el-input v-model="couponInfo.couponName"/>
       </el-form-item>
+
       <el-form-item label="优惠券类型">
         <el-radio-group v-model="couponInfo.couponType">
           <el-radio label="1">注册卷</el-radio>
           <el-radio label="2">推荐购买卷</el-radio>
         </el-radio-group>
       </el-form-item>
+
       <el-form-item label="发行数量">
         <el-input v-model="couponInfo.publishCount"/>
       </el-form-item>
+
       <el-form-item label="领取时间">
         <el-date-picker v-model="couponInfo.startTime" type="date" placeholder="选择开始日期" value-format="yyyy-MM-dd"/>
         至
         <el-date-picker v-model="couponInfo.endTime" type="date" placeholder="选择开始日期" value-format="yyyy-MM-dd"/>
       </el-form-item>
+
       <el-form-item label="过期时间">
-        <el-date-picker v-model="couponInfo.expireTime" type="datetime" placeholder="选择开始日期" value-format="yyyy-MM-dd HH:mm:ss"/>
+        <el-date-picker v-model="couponInfo.expireTime" type="datetime" placeholder="选择开始日期"
+                        value-format="yyyy-MM-dd HH:mm:ss"
+        />
       </el-form-item>
+
       <el-form-item label="直播详情">
         <el-input v-model="couponInfo.ruleDesc" type="textarea" rows="5"/>
       </el-form-item>
+
       <el-form-item>
         <el-button type="primary" @click="saveOrUpdate">保存</el-button>
         <el-button @click="back">返回</el-button>
       </el-form-item>
+
     </el-form>
   </div>
 </template>
@@ -62,19 +72,14 @@ export default {
       skuInfoList: []
     }
   },
-
-  // 监听器
   watch: {
-    $route(to, from) {
+    $route() {
       this.init()
     }
   },
-
-  // 生命周期方法（在路由切换，组件不变的情况下不会被调用）
   created() {
     this.init()
   },
-
   methods: {
     // 表单初始化
     init() {
@@ -86,7 +91,7 @@ export default {
         this.couponInfo = { ...defaultForm }
       }
     },
-
+    // 新增或更新
     saveOrUpdate() {
       // 防止表单重复提交
       this.saveBtnDisabled = true
@@ -96,7 +101,6 @@ export default {
         this.updateData()
       }
     },
-
     // 新增
     saveData() {
       api.save(this.couponInfo).then(response => {
@@ -109,11 +113,9 @@ export default {
         }
       })
     },
-
-    // 根据 id 更新记录
+    // 更新
     updateData() {
       api.updateById(this.couponInfo).then(response => {
-        debugger
         if (response.code) {
           this.$message({
             type: 'success',
@@ -123,12 +125,11 @@ export default {
         }
       })
     },
-
+    // 返回上一级页面
     back() {
       this.$router.push({ path: '/activity/coupon/list' })
     },
-
-    // 根据 id 查询记录
+    // 查询
     fetchDataById(id) {
       api.getById(id).then(response => {
         this.couponInfo = response.data

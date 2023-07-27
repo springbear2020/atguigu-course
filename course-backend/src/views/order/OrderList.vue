@@ -9,10 +9,12 @@
           <el-input v-model="searchObj.phone" placeholder="手机"/>
         </el-form-item>
         <el-form-item>
-          <el-date-picker v-model="searchObj.createTimeBegin" type="date" placeholder="选择下单开始日期" value-format="yyyy-MM-dd" />
+          <el-date-picker v-model="searchObj.createTimeBegin" type="date" placeholder="选择下单开始日期"
+                          value-format="yyyy-MM-dd"
+          />
         </el-form-item>
         <el-form-item>
-          <el-date-picker v-model="searchObj.createTimeEnd" type="date" placeholder="选择截止日期" value-format="yyyy-MM-dd" />
+          <el-date-picker v-model="searchObj.createTimeEnd" type="date" placeholder="选择截止日期" value-format="yyyy-MM-dd"/>
         </el-form-item>
         <el-form-item>
           <el-select v-model="searchObj.orderStatus" placeholder="订单状态" class="v-select patient-select">
@@ -35,12 +37,12 @@
       <el-table-column prop="outTradeNo" label="订单号" width="160"/>
       <el-table-column prop="courseName" label="课程名称" width="160">
         <template slot-scope="scope">
-          {{ scope.row.param.courseName }}
+          {{ scope.row.courseName }}
         </template>
       </el-table-column>
       <el-table-column prop="finalAmount" label="订单金额" width="90"/>
-      <el-table-column prop="nickName" label="下单用户" />
-      <el-table-column prop="phone" label="用户手机" />
+      <el-table-column prop="nickName" label="下单用户"/>
+      <el-table-column prop="phone" label="用户手机"/>
       <el-table-column prop="payTime" label="支付时间" width="156"/>
       <el-table-column prop="orderStatus" label="订单状态">
         <template slot-scope="scope">
@@ -76,7 +78,8 @@ export default {
       limit: 10,
       searchObj: {},
       statusList: [
-        { 'status': 0,
+        {
+          'status': 0,
           'name': '未支付'
         },
         {

@@ -77,14 +77,14 @@ export const constantRoutes = [
         path: 'insert',
         name: 'TeacherInsert',
         component: () => import('@/views/vod/teacher/TeacherForm.vue'),
-        meta: { title: '讲师添加', icon: 'tree' }
+        meta: { title: '讲师添加', icon: 'tree' },
+        hidden: true
       },
       {
         path: 'edit/:id',
         name: 'TeacherEdit',
         component: () => import('@/views/vod/teacher/TeacherForm.vue'),
         meta: { title: '编辑讲师', icon: 'tree' },
-        // 隐式路由，组件不在页面中展示
         hidden: true
       }
     ]
@@ -103,7 +103,7 @@ export const constantRoutes = [
         path: 'subject',
         name: 'SubjectList',
         component: () => import('@/views/vod/course/CourseSubject'),
-        meta: { title: '分类列表', icon: 'table' }
+        meta: { title: '课程分类', icon: 'table' }
       },
       {
         path: 'list',
@@ -152,7 +152,7 @@ export const constantRoutes = [
     alwaysShow: true,
     children: [
       {
-        path: 'order/list',
+        path: 'list',
         name: 'OrderList',
         component: () => import('@/views/order/OrderList'),
         meta: { title: '订单列表', icon: 'el-icon-s-help' }
@@ -206,7 +206,7 @@ export const constantRoutes = [
     redirect: '/wechat/menu/list',
     name: 'Wechat',
     meta: {
-      title: '菜单管理',
+      title: '公众号',
       icon: 'el-icon-refrigerator'
     },
     alwaysShow: true,

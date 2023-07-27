@@ -24,7 +24,8 @@
       </el-form-item>
       <el-form-item label="讲师头像">
         <el-upload :on-success="handleAvatarSuccess" :before-upload="beforeAvatarUpload" :on-error="handleAvatarError"
-                   :action="url+'/admin/vod/transfer/upload'" :show-file-list="false" class="avatar-uploader">
+                   :action="url+'/admin/vod/transfer/upload'" :show-file-list="false" class="avatar-uploader"
+        >
           <img v-if="teacher.avatar" :src="teacher.avatar" alt="讲师头像"/>
           <i v-else class="el-icon-plus avatar-uploader-icon"/>
         </el-upload>

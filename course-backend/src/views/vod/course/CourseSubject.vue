@@ -10,7 +10,8 @@
 
     <!-- 数据表格 -->
     <el-table :data="list" style="width: 100%" row-key="id" border lazy :load="lazyLoad"
-              :tree-props="{children: 'children', hasChildren: 'hasChildren'}">
+              :tree-props="{children: 'children', hasChildren: 'hasChildren'}"
+    >
       <el-table-column prop="title" label="名称" width="150"></el-table-column>
       <el-table-column prop="createTime" label="创建时间"></el-table-column>
     </el-table>
@@ -20,7 +21,8 @@
       <el-form label-position="right" label-width="170px">
         <el-form-item label="文件">
           <el-upload :multiple="false" :on-success="onUploadSuccess" class="upload-demo"
-                     :action="url+'/admin/vod/subject/import'">
+                     :action="url+'/admin/vod/subject/import'"
+          >
             <el-button size="small" type="primary">点击上传</el-button>
             <div slot="tip" class="el-upload__tip">只能上传 excel 文件，且不超过 500KB</div>
           </el-upload>

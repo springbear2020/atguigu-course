@@ -1,13 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
-    <modules>
-        <module>service</module>
-        <module>common</module>
-        <module>api</module>
-    </modules>
-
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
@@ -15,11 +8,19 @@
         <relativePath/>
     </parent>
 
+    <modules>
+        <module>client</module>
+        <module>common</module>
+        <module>gateway</module>
+        <module>service</module>
+    </modules>
+
+    <modelVersion>4.0.0</modelVersion>
     <groupId>cn.edu.whut.springbear</groupId>
-    <artifactId>course</artifactId>
+    <artifactId>course-backend</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>course</name>
-    <description>Online course system</description>
+    <name>course-backend</name>
+    <description>backend service for the course system</description>
     <packaging>pom</packaging>
 
     <properties>
@@ -47,7 +48,7 @@
                 <artifactId>velocity-engine-core</artifactId>
                 <version>2.2</version>
             </dependency>
-            <!-- excel -->
+            <!-- easy excel -->
             <dependency>
                 <groupId>com.alibaba</groupId>
                 <artifactId>easyexcel</artifactId>
@@ -64,7 +65,7 @@
                 <artifactId>springfox-swagger-ui</artifactId>
                 <version>${swagger.version}</version>
             </dependency>
-            <!-- tencent cloud sdk -->
+            <!-- qcloud sdk -->
             <dependency>
                 <groupId>com.qcloud</groupId>
                 <artifactId>cos_api</artifactId>
@@ -97,6 +98,30 @@
                 <artifactId>aliyun-sdk-oss</artifactId>
                 <version>3.9.0</version>
             </dependency>
+            <!-- jjwt -->
+            <dependency>
+                <groupId>io.jsonwebtoken</groupId>
+                <artifactId>jjwt</artifactId>
+                <version>0.7.0</version>
+            </dependency>
+            <!-- httpclient -->
+            <dependency>
+                <groupId>org.apache.httpcomponents</groupId>
+                <artifactId>httpclient</artifactId>
+                <version>4.5.1</version>
+            </dependency>
+            <!-- knife4j -->
+            <dependency>
+                <groupId>com.github.xiaoymin</groupId>
+                <artifactId>knife4j-spring-boot-starter</artifactId>
+                <version>2.0.8</version>
+            </dependency>
+            <!-- xxl-job-core -->
+            <dependency>
+                <groupId>com.xuxueli</groupId>
+                <artifactId>xxl-job-core</artifactId>
+                <version>2.3.0</version>
+            </dependency>
             <!-- spring cloud -->
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
@@ -112,38 +137,6 @@
                 <version>2.2.0.RELEASE</version>
                 <type>pom</type>
                 <scope>import</scope>
-            </dependency>
-            <!-- json -->
-            <dependency>
-                <groupId>com.alibaba</groupId>
-                <artifactId>fastjson</artifactId>
-                <version>1.2.29</version>
-            </dependency>
-
-            <!-- TODO what's the functions of following dependencies? -->
-            <!-- knife4j-spring-boot-starter -->
-            <dependency>
-                <groupId>com.github.xiaoymin</groupId>
-                <artifactId>knife4j-spring-boot-starter</artifactId>
-                <version>2.0.8</version>
-            </dependency>
-            <!-- jjwt -->
-            <dependency>
-                <groupId>io.jsonwebtoken</groupId>
-                <artifactId>jjwt</artifactId>
-                <version>0.7.0</version>
-            </dependency>
-            <!-- httpclient -->
-            <dependency>
-                <groupId>org.apache.httpcomponents</groupId>
-                <artifactId>httpclient</artifactId>
-                <version>4.5.1</version>
-            </dependency>
-            <!-- xxl-job-core -->
-            <dependency>
-                <groupId>com.xuxueli</groupId>
-                <artifactId>xxl-job-core</artifactId>
-                <version>2.3.0</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

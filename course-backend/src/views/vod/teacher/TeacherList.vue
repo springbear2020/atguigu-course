@@ -9,7 +9,7 @@
         <el-form-item label="头衔">
           <el-select v-model="conditions.level" clearable placeholder="头衔">
             <el-option value="1" label="高级讲师"/>
-            <el-option value="0" label="首席讲师"/>
+            <el-option value="2" label="首席讲师"/>
           </el-select>
         </el-form-item>
         <el-form-item label="入驻时间">
@@ -27,8 +27,8 @@
     <el-card class="operate-container" shadow="never">
       <i class="el-icon-tickets" style="margin-top: 5px"></i>
       <span style="margin-top: 5px">数据列表</span>
-      <el-button class="btn-add" @click="addTeacher()" style="margin-left: 10px;">添加讲师</el-button>
-      <el-button class="btn-add" @click="batchRemove()">批量删除</el-button>
+      <el-button class="btn-add" type="primary" @click="addTeacher()" style="margin-left: 10px;">添加讲师</el-button>
+      <el-button class="btn-add" type="danger" @click="batchRemove()">批量删除</el-button>
     </el-card>
 
     <!-- 表格数据 -->
@@ -41,7 +41,7 @@
       <el-table-column label="头衔" width="90">
         <template slot-scope="scope">
           <el-tag v-if="scope.row.level === 1" type="success" size="mini">高级讲师</el-tag>
-          <el-tag v-if="scope.row.level === 0" size="mini">首席讲师</el-tag>
+          <el-tag v-if="scope.row.level === 2" size="mini">首席讲师</el-tag>
         </template>
       </el-table-column>
       <el-table-column prop="intro" label="简介"/>

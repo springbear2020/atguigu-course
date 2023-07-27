@@ -6,7 +6,7 @@ const state = {
     withoutAnimation: false
   },
   device: 'desktop',
-  // TODO request url
+  // TODO 后台网关地址
   url: 'http://localhost:8888'
 }
 

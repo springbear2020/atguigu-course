@@ -4,8 +4,8 @@
     <el-card class="operate-container" shadow="never">
       <i class="el-icon-tickets" style="margin-top: 5px"></i>
       <span style="margin-top: 5px">数据列表</span>
-      <el-button class="btn-add" size="mini" @click="openDisplay">添加菜单</el-button>
-      <el-button class="btn-add" size="mini" @click="syncMenu">同步菜单</el-button>
+      <el-button class="btn-add" type="primary" @click="openDisplay">添加菜单</el-button>
+      <el-button class="btn-add" type="success" @click="syncMenu">同步菜单</el-button>
     </el-card>
 
     <!-- 菜单数据列表 -->
@@ -86,7 +86,6 @@
 <script>
 import menuApi from '@/api/wechat/menu'
 import subjectApi from '@/api/vod/subject'
-//import liveCourseApi from '@/api/live/liveCourse'
 
 const defaultForm = {
   id: null,
@@ -189,21 +188,7 @@ export default {
         }
       })
     },
-
-    // TODO 查询所有直播课程
-    // fetchLiveCourse() {
-    //   liveCourseApi.findLatelyList().then(response => {
-    //     this.liveCourseList = response.data
-    //     this.liveCourseList.push({'id': 0, 'courseName': '全部列表'})
-    //   })
-    // },
     liveCourseChanged(item) {
-      // this.menu.name = item.courseName
-      // if(item.id === 0) {
-      //   this.menu.url = '/live'
-      // } else {
-      //   this.menu.url = '/liveInfo/' + item.id
-      // }
     },
     // 查询顶级课程分类
     fetchSubjects() {

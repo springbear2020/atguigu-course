@@ -3,6 +3,7 @@
     <h4>优惠券信息</h4>
     <table class="table table-striped table-condenseda table-bordered" width="100%">
       <tbody>
+
       <tr>
         <th width="15%">优惠券名称</th>
         <td width="35%"><b style="font-size: 14px">{{ couponInfo.couponName }}</b></td>
@@ -11,28 +12,33 @@
           {{ couponInfo.couponType === 'REGISTER' ? '注册卷' : '推荐赠送卷' }}
         </td>
       </tr>
+
       <tr>
         <th>发行数量</th>
         <td>{{ couponInfo.publishCount }}</td>
         <th>每人限领次数</th>
         <td>{{ couponInfo.perLimit }}</td>
       </tr>
+
       <tr>
         <th>领取数量</th>
         <td>{{ couponInfo.receiveCount }}</td>
         <th>使用数量</th>
         <td>{{ couponInfo.useCount }}</td>
       </tr>
+
       <tr>
         <th>领取时间</th>
         <td>{{ couponInfo.startTime }}至{{ couponInfo.endTime }}</td>
         <th>过期时间</th>
         <td>{{ couponInfo.expireTime }}</td>
       </tr>
+
       <tr>
         <th>规则描述</th>
         <td colspan="3">{{ couponInfo.ruleDesc }}</td>
       </tr>
+
       </tbody>
     </table>
 
@@ -96,22 +102,17 @@ export default {
       searchObj: {}
     }
   },
-
-  // 监听器
   watch: {
-    $route(to, from) {
+    $route() {
       this.init()
     }
   },
-
-  // 生命周期方法（在路由切换，组件不变的情况下不会被调用）
   created() {
     this.couponId = this.$route.params.id
     // 获取优惠券信息
     this.fetchDataById()
     this.fetchData()
   },
-
   methods: {
     // 根据 id 查询记录
     fetchDataById() {
@@ -119,15 +120,12 @@ export default {
         this.couponInfo = response.data
       })
     },
-
     // 当页码发生改变的时候
     changeSize(size) {
       console.log(size)
       this.limit = size
       this.fetchData(1)
     },
-
-    // 加载 banner 列表数据
     fetchData(page = 1) {
       // 异步获取远程数据（ajax）
       this.page = page
@@ -140,7 +138,6 @@ export default {
         }
       )
     },
-
     back() {
       this.$router.push({ path: '/activity/coupon/list' })
     }

@@ -3,6 +3,7 @@ import request from '@/utils/request'
 const BASE_URL = '/admin/vod/course'
 
 export default {
+  // 查询课程分页数据
   getCoursePageData(curPage, pageSize, conditions) {
     return request({
       url: `${BASE_URL}/page/${curPage}/${pageSize}`,
@@ -10,7 +11,7 @@ export default {
       params: conditions
     })
   },
-
+  // 新增课程
   saveCourseInfo(courseInfo) {
     return request({
       url: `${BASE_URL}/save`,
@@ -18,12 +19,14 @@ export default {
       data: courseInfo
     })
   },
+  // 查询课程
   getCourseInfoById(id) {
     return request({
       url: `${BASE_URL}/get/${id}`,
       method: 'get'
     })
   },
+  // 更新课程
   updateCourseInfoById(courseInfo) {
     return request({
       url: `${BASE_URL}/update`,
@@ -31,14 +34,14 @@ export default {
       data: courseInfo
     })
   },
-  // 发布课程
+  // 发布课程（修改课程状态为已发布）
   publishCourseById(id) {
     return request({
       url: `${BASE_URL}/update/${id}`,
       method: 'put'
     })
   },
-// 删除查看
+// 删除课程
   removeById(id) {
     return request({
       url: `${BASE_URL}/remove/${id}`,

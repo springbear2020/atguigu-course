@@ -31,26 +31,24 @@ const routes = [
     {
         path: '/course/:subjectId',
         name: 'Course',
-        component: () => import('../views/Course'),
+        component: () => import('../views/course/Course'),
     },
     {
         path: '/course/detail/:courseId',
         name: 'CourseInfo',
         component: () =>
-            import('../views/CourseDetail'),
+            import('../views/course/CourseDetail'),
     },
-    // {
-    //     path: '/play/:courseId/:videoId',
-    //     name: 'Play',
-    //     component: () =>
-    //         import('../views/play.vue'),
-    // },
-    // {
-    //     path: '/trade/:courseId',
-    //     name: 'Trade',
-    //     component: () =>
-    //         import('../views/trade.vue'),
-    // },
+    {
+        path: '/play/:courseId/:videoId',
+        name: 'Play',
+        component: () => import('../views/course/Play'),
+    },
+    {
+        path: '/trade/:courseId',
+        name: 'Trade',
+        component: () => import('../views/order/Trade'),
+    },
     // {
     //     path: '/pay/:orderId',
     //     name: 'Pay',

@@ -9,7 +9,7 @@ const service = axios.create({
 
 // http request 拦截器
 service.interceptors.request.use(config => {
-        //获取 localStorage 里的 token 值
+        // 获取 localStorage 里的 token 值
         let token = window.localStorage.getItem('token') || '';
         if (token !== '') {
             // 将 token 值条件到请求头中

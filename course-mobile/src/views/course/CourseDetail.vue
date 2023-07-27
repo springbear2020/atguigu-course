@@ -5,7 +5,7 @@
     <van-row>
       <van-col span="8">
         <div class="course_count">
-          <h1>购买数</h1>
+          <h1>购买量</h1>
           <p>{{ course.buyCount }}</p>
         </div>
       </van-col>
@@ -17,7 +17,7 @@
       </van-col>
       <van-col span="8">
         <div class="course_count">
-          <h1>浏览数</h1>
+          <h1>浏览量</h1>
           <p>{{ course.viewCount }}</p>
         </div>
       </van-col>
@@ -32,9 +32,8 @@
         <div class="course_price_number">￥{{ course.price }}</div>
       </div>
       <div>
-        <van-button @click="see()" v-if="isBuy || course.price == '0.00'" plain type="warning" size="mini">立即观看
-        </van-button>
-        <van-button @click="buy" v-else plain type="warning" size="mini">立即购买</van-button>
+        <!-- course.price == '0' 不可替换为 === -->
+        <van-button @click="buy()" v-show="course.price != '0.00'" plain type="warning" size="mini">购买课程</van-button>
       </div>
     </div>
 
@@ -62,7 +61,7 @@
               <van-button @click="play(child)" type="warning" size="mini" plain>免费观看</van-button>
             </p>
             <p v-else>
-              <van-button @click="play(child)" type="warning" size="mini" plain>观看</van-button>
+              <van-button @click="play(child)" type="warning" size="mini" plain>前往观看</van-button>
             </p>
           </ul>
         </van-collapse-item>
@@ -75,7 +74,7 @@
 
 
 <script>
-import courseApi from '../api/course'
+import courseApi from '../../api/course'
 
 export default {
   data() {
@@ -84,7 +83,7 @@ export default {
       courseId: null,
       course: {},
       chapterVoList: [],
-      isBuy: true,
+      isBuy: false,
       activeNames: ["1"]
     };
   },
@@ -103,14 +102,12 @@ export default {
         this.loading = false;
       });
     },
-    play(item) {
-
+    play(video) {
+      let videoId = video.id;
+      this.$router.push({path: '/play/' + this.courseId + '/' + videoId})
     },
     buy() {
-
-    },
-    see() {
-
+      this.$router.push({path: '/trade/' + this.courseId})
     }
   }
 };

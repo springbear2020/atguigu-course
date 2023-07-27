@@ -4,13 +4,17 @@
     <van-pull-refresh v-model="refreshing" @refresh="onRefresh">
       <!-- offset：滚动条与底部距离小于 offset 时触发 load 事件 默认 300，因此要改小，否则首次进入一直触发  -->
       <van-list v-model="loading" :finished="finished" finished-text="没有更多了" offset="10" @load="onLoad">
-        <van-card v-for="(item,index) in list" :key="index" :price="item.price" :title="item.title" :thumb="item.cover">
+        <van-card v-for="(item,index) in list" :key="index" :title="item.title" :thumb="item.cover">
           <template #tags>
             <van-tag round plain color="#ffe1e1" text-color="#ad0000">课时数：{{ item.lessonNum }}</van-tag>
             <br/>
             <van-tag round plain color="#ffe1e1" text-color="#ad0000">购买数：{{ item.buyCount }}</van-tag>
             <br/>
             <van-tag round plain color="#ffe1e1" text-color="#ad0000">访问量：{{ item.viewCount }}</van-tag>
+            <br/>
+            <!-- 免费课程 -->
+            <van-tag v-if="item.price == '0.00'" round plain color="#ffe1e1" text-color="#ad0000">免费课程</van-tag>
+            <van-tag v-else round plain color="#ffe1e1" text-color="#ad0000">课程价格：￥{{ item.price }}</van-tag>
           </template>
           <template #footer>
             <van-button size="mini" @click="info(item.id)">去看看</van-button>
@@ -22,7 +26,7 @@
 </template>
 
 <script>
-import courseApi from '../api/course'
+import courseApi from '../../api/course'
 
 export default {
   name: "Course",

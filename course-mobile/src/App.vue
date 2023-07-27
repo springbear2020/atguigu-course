@@ -22,13 +22,13 @@ export default {
     // 处理微信授权登录逻辑
     wechatAuthorization() {
       let token = this.getQueryString('token') || '';
-
       // 先判断本次请求的路径中是否含有 token 信息，若存在则存入本地 localStorage
       if (token !== '') {
-        // TODO replace
         window.localStorage.setItem('token', token);
-        // window.localStorage.removeItem('token')
       }
+
+      // TODO remove next line
+      // window.localStorage.removeItem('token')
 
       // 访问所有页面都必须登录
       token = window.localStorage.getItem('token') || '';

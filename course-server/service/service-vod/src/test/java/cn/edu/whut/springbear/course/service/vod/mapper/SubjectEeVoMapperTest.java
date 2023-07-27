@@ -14,13 +14,11 @@ import java.util.List;
 @SpringBootTest
 public class SubjectEeVoMapperTest {
     @Autowired
-    private SubjectEeVoMapper subjectEeVoMapper;
-    @Autowired
     private SubjectMapper subjectMapper;
 
     @Test
     public void listSubjects() {
-        List<SubjectEeVo> subjectEeVos = subjectEeVoMapper.listSubjects();
+        List<SubjectEeVo> subjectEeVos = subjectMapper.listSubjects();
         subjectEeVos.forEach(System.out::println);
     }
 

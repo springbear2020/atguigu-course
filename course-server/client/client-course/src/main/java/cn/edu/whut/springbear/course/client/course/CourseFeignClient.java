@@ -21,4 +21,13 @@ public interface CourseFeignClient {
      */
     @GetMapping("feign/vod/course/list/{title}")
     List<Course> listCoursesByTitle(@PathVariable String title);
+
+    /**
+     * 查询课程信息
+     *
+     * @param courseId 课程 ID
+     * @return 课程信息
+     */
+    @GetMapping("feign/vod/course/get/{courseId}")
+    Course getCourse(@PathVariable Long courseId);
 }

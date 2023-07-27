@@ -13,9 +13,9 @@ import java.util.List;
  */
 public interface SubjectService extends IService<Subject> {
     /**
-     * 获取课程目录下的子课程
+     * 获取课程一级分类下的所有二级分类
      *
-     * @param parentId 课程父 ID
+     * @param parentId 课程分类父级 ID
      * @return 子课程列表
      */
     List<Subject> listSubCourses(long parentId);
@@ -28,7 +28,7 @@ public interface SubjectService extends IService<Subject> {
     void exportCourseData(HttpServletResponse response);
 
     /**
-     * 课程分类数据导入数据库
+     * 课程分类数据导入
      *
      * @param file     课程分类 Excel 文件
      * @param realPath 工程磁盘真实路径

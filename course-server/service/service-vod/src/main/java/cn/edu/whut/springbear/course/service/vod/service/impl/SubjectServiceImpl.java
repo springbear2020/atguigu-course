@@ -4,7 +4,6 @@ import cn.edu.whut.springbear.course.common.model.pojo.vod.Subject;
 import cn.edu.whut.springbear.course.common.model.vo.vod.SubjectEeVo;
 import cn.edu.whut.springbear.course.common.util.exception.CourseException;
 import cn.edu.whut.springbear.course.service.vod.listener.SubjectListener;
-import cn.edu.whut.springbear.course.service.vod.mapper.SubjectEeVoMapper;
 import cn.edu.whut.springbear.course.service.vod.mapper.SubjectMapper;
 import cn.edu.whut.springbear.course.service.vod.service.SubjectService;
 import com.alibaba.excel.EasyExcel;
@@ -28,9 +27,9 @@ import java.util.UUID;
 @Service
 public class SubjectServiceImpl extends ServiceImpl<SubjectMapper, Subject> implements SubjectService {
     @Autowired
-    private SubjectEeVoMapper subjectEeVoMapper;
-    @Autowired
     private SubjectListener subjectListener;
+    @Autowired
+    private SubjectMapper subjectMapper;
 
     @Override
     public List<Subject> listSubCourses(long parentId) {
@@ -47,7 +46,7 @@ public class SubjectServiceImpl extends ServiceImpl<SubjectMapper, Subject> impl
             String fileName = URLEncoder.encode("课程分类", "UTF-8");
             response.setHeader("Content-disposition", "attachment;filename=" + fileName + ".xlsx");
             // 获取学科分类数据
-            List<SubjectEeVo> subjectEeVos = subjectEeVoMapper.listSubjects();
+            List<SubjectEeVo> subjectEeVos = subjectMapper.listSubjects();
             // 写入 Excel
             EasyExcel.write(response.getOutputStream(), SubjectEeVo.class).sheet("课程分类").doWrite(subjectEeVos);
         } catch (IOException e) {

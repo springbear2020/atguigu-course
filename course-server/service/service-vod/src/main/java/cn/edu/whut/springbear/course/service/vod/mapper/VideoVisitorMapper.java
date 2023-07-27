@@ -18,7 +18,7 @@ import java.util.List;
  */
 public interface VideoVisitorMapper extends BaseMapper<VideoVisitor> {
     /**
-     * 统计指定时间内的课程访问量
+     * 统计指定时间内的课程访问量，即小节视频播放数量
      *
      * @param courseId  课程 ID
      * @param startDate 开始时间

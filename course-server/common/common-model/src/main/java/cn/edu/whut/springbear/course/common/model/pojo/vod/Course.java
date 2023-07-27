@@ -94,4 +94,7 @@ public class Course extends BaseEntity {
     @ApiModelProperty("课程章节信息")
     @TableField(exist = false)
     private List<Chapter> chapters;
+
+    @TableField(exist = false)
+    private Boolean isBuy;
 }

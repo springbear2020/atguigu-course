@@ -38,5 +38,4 @@ public class LiveCourseConfig extends BaseEntity {
     @ApiModelProperty(value = "1-商品列表；2-商城链接；3-商城二维码")
     @TableField("store_type")
     private Integer storeType;
-
 }

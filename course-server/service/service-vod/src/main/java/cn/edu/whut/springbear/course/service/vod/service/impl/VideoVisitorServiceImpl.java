@@ -19,7 +19,6 @@ import java.util.List;
  */
 @Service
 public class VideoVisitorServiceImpl extends ServiceImpl<VideoVisitorMapper, VideoVisitor> implements VideoVisitorService {
-
     @Override
     public List<VideoVisitorCountVo> countVisitors(Long courseId, String startDate, String endDate) {
         return baseMapper.countVisitors(courseId, startDate, endDate);

@@ -1,6 +1,8 @@
 package cn.edu.whut.springbear.course.service.vod.service.impl;
 
+import cn.edu.whut.springbear.course.common.model.pojo.vod.Video;
 import cn.edu.whut.springbear.course.common.util.exception.CourseException;
+import cn.edu.whut.springbear.course.service.vod.service.VideoService;
 import cn.edu.whut.springbear.course.service.vod.service.VodService;
 import com.qcloud.vod.VodUploadClient;
 import com.qcloud.vod.model.VodUploadRequest;
@@ -9,12 +11,15 @@ import com.tencentcloudapi.common.Credential;
 import com.tencentcloudapi.common.exception.TencentCloudSDKException;
 import com.tencentcloudapi.vod.v20180717.VodClient;
 import com.tencentcloudapi.vod.v20180717.models.DeleteMediaRequest;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.UUID;
 
 /**
@@ -29,6 +34,26 @@ public class VodServiceImpl implements VodService {
     private String secretId;
     @Value("${tencent.cloud.secretKey}")
     private String secretKey;
+    @Value("${tencent.vod.appId}")
+    private String vodAppId;
+
+    @Autowired
+    private VideoService videoService;
+
+    @Override
+    public Map<String, String> getVideoAuth(Long videoId) {
+        // 获取腾讯云视频 id
+        Video video = videoService.getById(videoId);
+        String videoSourceId = video.getVideoSourceId();
+        if (videoSourceId == null) {
+            return null;
+        }
+        Map<String, String> map = new HashMap<>();
+        map.put("videoSourceId", video.getVideoSourceId());
+        map.put("appId", vodAppId);
+        map.put("chapterId", String.valueOf(video.getChapterId()));
+        return map;
+    }
 
     @Override
     public String videoUpload(MultipartFile file, String realPath) {
@@ -38,7 +63,7 @@ public class VodServiceImpl implements VodService {
         String fileSuffix = originalFilename.substring(originalFilename.lastIndexOf('.'));
         String fileName = UUID.randomUUID().toString().replaceAll("-", "") + fileSuffix;
 
-        // 保存上传文件到本地
+        // 保存视频文件到本地
         File video = new File(realPath + '/' + fileName);
         try {
             file.transferTo(video);

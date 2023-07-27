@@ -15,7 +15,7 @@ import java.util.List;
  */
 public interface ChapterService extends IService<Chapter> {
     /**
-     * 查询课程下的所有章节，章节下包含小节
+     * 查询课程下的所有章节，章节下包含多个小节
      *
      * @param courseId 课程 ID
      * @return 课程的章节详情数据

@@ -27,9 +27,6 @@ export default {
         window.localStorage.setItem('token', token);
       }
 
-      // TODO remove next line
-      // window.localStorage.removeItem('token')
-
       // 访问所有页面都必须登录
       token = window.localStorage.getItem('token') || '';
 

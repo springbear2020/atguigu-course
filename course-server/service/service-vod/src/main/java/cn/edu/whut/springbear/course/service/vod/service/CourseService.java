@@ -76,7 +76,7 @@ public interface CourseService extends IService<Course> {
     List<Course> listCoursesByName(String courseName);
 
     /**
-     * 查询课程详情，包含课程小节信息
+     * 查询课程详情，包含课程讲师信息、分类信息、课程描述信息、小节信息
      *
      * @param courseId 课程 ID
      * @return 课程详情信息

@@ -24,6 +24,16 @@
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
         <dependency>
+            <groupId>cn.edu.whut.springbear</groupId>
+            <artifactId>client-user</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>cn.edu.whut.springbear</groupId>
+            <artifactId>client-order</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+        <dependency>
             <groupId>com.github.binarywang</groupId>
             <artifactId>weixin-java-mp</artifactId>
             <version>${wechat.mp.version}</version>

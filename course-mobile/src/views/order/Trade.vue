@@ -85,12 +85,16 @@ export default {
       this.couponUseId = this.coupons[index].couponUseId;
       this.couponReduce = this.coupons[index].value;
       this.finalAmount = parseFloat(this.courseVo.price) * 100 - parseFloat(this.couponReduce)
+      if (this.finalAmount <= 0) {
+        this.finalAmount = 0
+      }
     },
     // 优惠券兑换事件回调
     exchange(code) {
       couponApi.exchangeCoupon(code).then(response => {
         let msg = response.message
-        Toast.success(msg)
+        this.getCouponInfo()
+        alert(msg)
       });
     },
     // 查询课程信息
@@ -121,7 +125,7 @@ export default {
       orderApi.submitOrder(orderFormVo).then(response => {
         this.loading = false
         let orderId = response.data
-        // this.$router.push({path: '/pay/' + response.data})
+        this.$router.push({path: '/pay/' + orderId})
       })
     }
   }

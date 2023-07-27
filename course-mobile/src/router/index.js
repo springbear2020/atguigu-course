@@ -10,24 +10,6 @@ const routes = [
         name: 'Home',
         component: Home,
     },
-    // {
-    //     path: '/liveOnline',
-    //     name: 'liveOnline',
-    //     component: () =>
-    //         import('../views/liveOnline.vue'),
-    // },
-    // {
-    //     path: '/live',
-    //     name: 'Live',
-    //     component: () =>
-    //         import('../views/live.vue'),
-    // },
-    // {
-    //     path: '/liveInfo/:liveCourseId',
-    //     name: 'LiveInfo',
-    //     component: () =>
-    //         import('../views/liveInfo.vue'),
-    // },
     {
         path: '/course/:subjectId',
         name: 'Course',
@@ -49,11 +31,28 @@ const routes = [
         name: 'Trade',
         component: () => import('../views/order/Trade'),
     },
+    {
+        path: '/pay/:orderId',
+        name: 'Pay',
+        component: () => import('../views/order/Pay'),
+    },
     // {
-    //     path: '/pay/:orderId',
-    //     name: 'Pay',
+    //     path: '/liveOnline',
+    //     name: 'liveOnline',
     //     component: () =>
-    //         import('../views/pay.vue'),
+    //         import('../views/liveOnline.vue'),
+    // },
+    // {
+    //     path: '/live',
+    //     name: 'Live',
+    //     component: () =>
+    //         import('../views/live.vue'),
+    // },
+    // {
+    //     path: '/liveInfo/:liveCourseId',
+    //     name: 'LiveInfo',
+    //     component: () =>
+    //         import('../views/liveInfo.vue'),
     // },
     // {
     //     path: '/order',

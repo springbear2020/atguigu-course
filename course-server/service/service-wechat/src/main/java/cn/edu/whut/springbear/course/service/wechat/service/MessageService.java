@@ -25,11 +25,12 @@ public interface MessageService {
     String buildMessage(Map<String, Object> map);
 
     /**
-     * 推送订单消息
+     * 推送用户课程订单购买成功消息
      *
+     * @param tradeNum 订单流水号
      * @return true：推送成功
      */
-    boolean pushPayMessage();
+    boolean pushPayMessage(String tradeNum);
 
     /**
      * 微信公众号签名验证（SHA1 算法加密验证）

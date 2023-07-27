@@ -4,7 +4,10 @@ import cn.edu.whut.springbear.course.client.user.UserFeignClient;
 import cn.edu.whut.springbear.course.common.model.pojo.activity.CouponInfo;
 import cn.edu.whut.springbear.course.common.model.pojo.activity.CouponUse;
 import cn.edu.whut.springbear.course.common.model.pojo.user.UserInfo;
+import cn.edu.whut.springbear.course.common.model.vo.activity.CouponInfoVo;
 import cn.edu.whut.springbear.course.common.model.vo.activity.CouponUseQueryVo;
+import cn.edu.whut.springbear.course.common.util.DateUtils;
+import cn.edu.whut.springbear.course.common.util.NumberUtils;
 import cn.edu.whut.springbear.course.service.activity.mapper.CouponInfoMapper;
 import cn.edu.whut.springbear.course.service.activity.mapper.CouponUseMapper;
 import cn.edu.whut.springbear.course.service.activity.service.CouponInfoService;
@@ -15,6 +18,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -59,5 +63,39 @@ public class CouponInfoServiceImpl extends ServiceImpl<CouponInfoMapper, CouponI
         }
         page.setRecords(records);
         return page;
+    }
+
+    @Override
+    public boolean userObtainCoupon(Long userId) {
+        // 查询系统中可用的优惠券
+        String today = DateUtils.parseDateWithHyphen();
+        QueryWrapper<CouponInfo> queryWrapper = new QueryWrapper<>();
+        queryWrapper.le("start_time", today);
+        queryWrapper.ge("end_time", today);
+        List<CouponInfo> couponInfos = baseMapper.selectList(queryWrapper);
+        if (couponInfos.size() == 0) {
+            return false;
+        }
+
+        // 随机挑选一张可用的优惠券发放给用户
+        CouponInfo couponInfo = couponInfos.get(NumberUtils.randomNumber(couponInfos.size()));
+        if (couponInfo != null) {
+            // 将该张优惠券注册到该用户名下
+            CouponUse couponUse = new CouponUse();
+            couponUse.setUserId(userId);
+            couponUse.setCouponId(couponInfo.getId());
+            couponUse.setGetTime(new Date());
+            // [1]未使用；[2]已使用
+            couponUse.setCouponStatus("1");
+            // 过期时间
+            couponUse.setExpireTime(couponInfo.getExpireTime());
+            return couponUseMapper.insert(couponUse) == 1;
+        }
+        return false;
+    }
+
+    @Override
+    public List<CouponInfoVo> listUserCoupons(Long userId) {
+        return baseMapper.listUserCoupons(userId);
     }
 }

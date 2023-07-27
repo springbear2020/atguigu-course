@@ -27,4 +27,9 @@ public class CourseFeignController {
     public List<Course> listCoursesByName(@ApiParam(name = "courseName", value = "课程名称", required = true) @PathVariable String courseName) {
         return courseService.listCoursesByName(courseName);
     }
+
+    @GetMapping("get/{courseId}")
+    public Course getCourseById(@PathVariable Long courseId) {
+        return courseService.getById(courseId);
+    }
 }

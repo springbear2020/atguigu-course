@@ -33,6 +33,9 @@ public class VodController {
         return videoId == null ? Result.fail("上传视频失败", null) : Result.success("上传视频成功", videoId);
     }
 
+    /**
+     * 删除腾讯云点播平台上的视频资源
+     */
     @ApiOperation("删除视频")
     @DeleteMapping("remove/{videoId}")
     public Result deleteVideo(@ApiParam(name = "videoId", value = "视频 ID") @PathVariable String videoId) {

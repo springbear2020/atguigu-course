@@ -3,21 +3,18 @@ package cn.edu.whut.springbear.course.service.wechat.controller.api;
 import cn.edu.whut.springbear.course.common.util.Result;
 import cn.edu.whut.springbear.course.service.wechat.service.MessageService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.Map;
 
 /**
  * @author Spring-_-Bear
- * @datetime 2022-10-26 10:08
+ * @datetime 2022-10-31 09:11
  */
 @RestController
 @RequestMapping("api/wechat/message")
-public class MessageController {
+public class WechatApiController {
     @Autowired
     private MessageService messageService;
 
@@ -51,8 +48,8 @@ public class MessageController {
         return messageService.buildMessage(response);
     }
 
-    @GetMapping("push")
-    public Result pushPayMessage() {
-        return messageService.pushPayMessage() ? Result.success("推送订单消息成功", null) : Result.fail("推送订单消息失败", null);
+    @GetMapping("push/{tradeNum}")
+    public Result pushPayMessage(@PathVariable String tradeNum) {
+        return messageService.pushPayMessage(tradeNum) ? Result.success("推送订单消息成功", null) : Result.fail("推送订单消息失败", null);
     }
 }

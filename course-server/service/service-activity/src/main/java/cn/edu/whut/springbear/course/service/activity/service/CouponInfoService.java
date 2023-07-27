@@ -2,9 +2,12 @@ package cn.edu.whut.springbear.course.service.activity.service;
 
 import cn.edu.whut.springbear.course.common.model.pojo.activity.CouponInfo;
 import cn.edu.whut.springbear.course.common.model.pojo.activity.CouponUse;
+import cn.edu.whut.springbear.course.common.model.vo.activity.CouponInfoVo;
 import cn.edu.whut.springbear.course.common.model.vo.activity.CouponUseQueryVo;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.IService;
+
+import java.util.List;
 
 /**
  * <p>
@@ -25,4 +28,20 @@ public interface CouponInfoService extends IService<CouponInfo> {
      * @return 分页数据
      */
     Page<CouponUse> getUsedPageData(Long curNum, Long pageSize, CouponUseQueryVo couponUseQueryVo);
+
+    /**
+     * 给用户发放优惠券
+     *
+     * @param userId 用户 ID
+     * @return true: 发放成功
+     */
+    boolean userObtainCoupon(Long userId);
+
+    /**
+     * 查询用户名下所有的优惠券
+     *
+     * @param userId 用户 ID
+     * @return 用户优惠券列表
+     */
+    List<CouponInfoVo> listUserCoupons(Long userId);
 }

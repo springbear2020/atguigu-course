@@ -33,7 +33,7 @@
       </div>
       <div>
         <!-- course.price == '0' 不可替换为 === -->
-        <van-button @click="buy()" v-show="course.price != '0.00'" plain type="warning" size="mini">购买课程</van-button>
+        <van-button @click="buy()" v-show="course.price != '0.00' && course.isBuy === false" plain type="warning" size="mini">购买课程</van-button>
       </div>
     </div>
 
@@ -57,11 +57,8 @@
         <van-collapse-item :title="item.title" :name="item.id" v-for="item in chapterVoList" :key="item.id">
           <ul class="course_chapter_list" v-for="child in item.videos" :key="child.id">
             <h2>{{ child.title }}</h2>
-            <p v-if="child.isFree === 1">
+            <p v-show="child.isFree === 1 || course.isBuy">
               <van-button @click="play(child)" type="warning" size="mini" plain>免费观看</van-button>
-            </p>
-            <p v-else>
-              <van-button @click="play(child)" type="warning" size="mini" plain>前往观看</van-button>
             </p>
           </ul>
         </van-collapse-item>

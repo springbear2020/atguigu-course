@@ -1,4 +1,4 @@
-package cn.edu.whut.springbear.course.service.activity.controller;
+package cn.edu.whut.springbear.course.service.activity.controller.admin;
 
 
 import cn.edu.whut.springbear.course.common.model.pojo.activity.CouponInfo;

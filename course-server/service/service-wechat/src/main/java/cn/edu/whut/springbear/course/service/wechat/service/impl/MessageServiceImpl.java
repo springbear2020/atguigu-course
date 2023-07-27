@@ -2,8 +2,14 @@ package cn.edu.whut.springbear.course.service.wechat.service.impl;
 
 
 import cn.edu.whut.springbear.course.client.course.CourseFeignClient;
+import cn.edu.whut.springbear.course.client.order.OrderFeignClient;
+import cn.edu.whut.springbear.course.client.user.UserFeignClient;
+import cn.edu.whut.springbear.course.common.model.pojo.order.OrderInfo;
+import cn.edu.whut.springbear.course.common.model.pojo.user.UserInfo;
 import cn.edu.whut.springbear.course.common.model.pojo.vod.Course;
+import cn.edu.whut.springbear.course.common.util.DateUtils;
 import cn.edu.whut.springbear.course.common.util.alogrithm.SHA1;
+import cn.edu.whut.springbear.course.common.util.interceptor.AuthContextHolder;
 import cn.edu.whut.springbear.course.service.wechat.service.MessageService;
 import com.alibaba.fastjson.JSONObject;
 import me.chanjar.weixin.common.error.WxErrorException;
@@ -25,10 +31,6 @@ import java.util.*;
  */
 @Service
 public class MessageServiceImpl implements MessageService {
-    @Autowired
-    private CourseFeignClient courseFeignClient;
-    @Autowired
-    private WxMpService wxMpService;
     @Value("${course.subscribeMsg}")
     private String subscribeMsg;
     @Value("${course.aboutMe}")
@@ -39,6 +41,17 @@ public class MessageServiceImpl implements MessageService {
     private String wechatToken;
     @Value("${course.courseDetailUrl}")
     private String courseDetailUrl;
+    @Value("${wechat.templateId}")
+    private String templateId;
+
+    @Autowired
+    private WxMpService wxMpService;
+    @Autowired
+    private UserFeignClient userFeignClient;
+    @Autowired
+    private CourseFeignClient courseFeignClient;
+    @Autowired
+    private OrderFeignClient orderFeignClient;
 
     @SuppressWarnings("unchecked")
     @Override
@@ -95,29 +108,31 @@ public class MessageServiceImpl implements MessageService {
     }
 
     /**
-     * TODO 用户支付消息推送
+     * 用户支付消息推送
      */
     @Override
-    public boolean pushPayMessage() {
-        String openId = "oZZ8j5yWCbynuwRPfjGYvcpp0Bzc";
-        String templateId = "4bTafg2x6tI-19bXgSLN9TDYePVFXvzBZCj7p5uToZE";
-        String url = "https://springbear2020.cn";
-        WxMpTemplateMessage templateMessage = WxMpTemplateMessage.builder()
-                .toUser(openId)
-                .templateId(templateId)
-                .url(url)
-                .build();
+    public boolean pushPayMessage(String tradeNum) {
+        // 通过用户 ID 查询用户 openId
+        Long userId = AuthContextHolder.getUserId();
+        UserInfo user = userFeignClient.getUserById(userId);
+        String openId = user.getOpenId();
+
+        // 通过订单流水号查询订单
+        OrderInfo orderInfo = orderFeignClient.getOrderInfo(tradeNum);
+
+        String url = "https://springbear.blog.csdn.net";
+        WxMpTemplateMessage templateMessage = WxMpTemplateMessage.builder().toUser(openId).templateId(templateId).url(url).build();
 
         // 配置模板消息
         templateMessage.addData(new WxMpTemplateData("first", "亲爱的用户：您有一笔订单支付成功。", "#272727"));
         // 商品名称
-        templateMessage.addData(new WxMpTemplateData("keyword1", "java 基础课程", "#272727"));
+        templateMessage.addData(new WxMpTemplateData("keyword1", orderInfo.getTradeBody(), "#272727"));
         // 订单编号
-        templateMessage.addData(new WxMpTemplateData("keyword2", "2022-10-26", "#272727"));
-        // 支付事件
-        templateMessage.addData(new WxMpTemplateData("keyword3", "20221026171818", "#272727"));
+        templateMessage.addData(new WxMpTemplateData("keyword2", DateUtils.parseDatetime(orderInfo.getPayTime()), "#272727"));
+        // 支付时间
+        templateMessage.addData(new WxMpTemplateData("keyword3", tradeNum, "#272727"));
         // 支付金额
-        templateMessage.addData(new WxMpTemplateData("keyword4", "100", "#272727"));
+        templateMessage.addData(new WxMpTemplateData("keyword4", orderInfo.getFinalAmount().toString(), "#272727"));
         // 备注消息
         templateMessage.addData(new WxMpTemplateData("remark", "感谢你购买课程，如有疑问，请联系客服！", "#272727"));
 
@@ -185,7 +200,7 @@ public class MessageServiceImpl implements MessageService {
         List<Course> courseList = courseFeignClient.listCoursesByTitle(keyword);
         // 用户查询的课程信息不存在，返回普通文本消息
         if (courseList.isEmpty()) {
-            return this.textMessage(fromUser, toUser, "未查询到相关课程，请重新输入关键字");
+            return this.textMessage(fromUser, toUser, "未查询到相关课程，请重新输入");
         }
 
         // 时间戳：单位为秒

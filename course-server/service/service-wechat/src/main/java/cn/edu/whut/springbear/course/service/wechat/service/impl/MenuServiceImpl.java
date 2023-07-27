@@ -30,9 +30,6 @@ public class MenuServiceImpl extends ServiceImpl<MenuMapper, Menu> implements Me
     private MenuMapper menuMapper;
     @Autowired
     private WxMpService wxMpService;
-    /**
-     * 页面跳转型子菜单的根 url
-     */
     @Value("${course.viewBaseUrl}")
     private String viewBaseUrl;
 

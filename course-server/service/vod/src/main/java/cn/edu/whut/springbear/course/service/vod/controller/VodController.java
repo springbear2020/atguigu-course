@@ -16,7 +16,6 @@ import javax.servlet.http.HttpSession;
  * @datetime 2022-10-23 16:54
  */
 @RestController
-@CrossOrigin
 @Api(tags = "视频点播管理")
 @RequestMapping("/admin/vod")
 public class VodController {

@@ -16,6 +16,10 @@ spring:
   servlet:
     multipart:
       max-file-size: -1
-mybatis-plus:
-  configuration:
-    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+#mybatis-plus:
+#  configuration:
+#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl

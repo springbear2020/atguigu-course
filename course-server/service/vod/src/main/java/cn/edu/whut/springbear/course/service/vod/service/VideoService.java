@@ -30,6 +30,7 @@ public interface VideoService extends IService<Video> {
      * 通过小节 ID 删除小节
      *
      * @param videoId 小节 ID
+     * @return true：删除成功
      */
     boolean deleteVideoById(Long videoId);
 }

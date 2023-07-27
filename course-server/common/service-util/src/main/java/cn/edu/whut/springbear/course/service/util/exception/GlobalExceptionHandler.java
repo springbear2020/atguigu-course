@@ -1,5 +1,6 @@
 package cn.edu.whut.springbear.course.service.util.exception;
 
+
 import cn.edu.whut.springbear.course.service.util.Result;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;

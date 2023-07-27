@@ -15,5 +15,13 @@ import java.util.List;
  * @since 2022-10-23
  */
 public interface VideoVisitorService extends IService<VideoVisitor> {
+    /**
+     * 统计课程小节下的观看人数
+     *
+     * @param courseId  课程 ID
+     * @param startDate 起始时间
+     * @param endDate   结束时间
+     * @return [时间-人数]集合列表
+     */
     List<VideoVisitorCountVo> countVisitors(Long courseId, String startDate, String endDate);
 }

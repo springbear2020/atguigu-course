@@ -3,7 +3,6 @@ package cn.edu.whut.springbear.course.service.vod.service.impl;
 import cn.edu.whut.springbear.course.service.util.exception.CourseException;
 import cn.edu.whut.springbear.course.service.vod.service.VodService;
 import cn.edu.whut.springbear.course.service.vod.util.ConstantPropertiesUtils;
-import cn.edu.whut.springbear.course.service.vod.util.FormatUtils;
 import com.qcloud.vod.VodUploadClient;
 import com.qcloud.vod.model.VodUploadRequest;
 import com.qcloud.vod.model.VodUploadResponse;
@@ -16,6 +15,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.UUID;
 
 /**
  * @author Spring-_-Bear
@@ -26,7 +26,11 @@ public class VodServiceImpl implements VodService {
     @Override
     public String videoUpload(MultipartFile file, String realPath) {
         // 保存上传文件到本地
-        String fileName = FormatUtils.uuidFileName(file, false);
+        String originalFilename = file.getOriginalFilename();
+        assert originalFilename != null;
+        String fileSuffix = originalFilename.substring(originalFilename.lastIndexOf('.'));
+        String fileName = UUID.randomUUID().toString().replaceAll("-", "") + fileSuffix;
+
         File video = new File(realPath + '/' + fileName);
         try {
             file.transferTo(video);

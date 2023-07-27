@@ -21,6 +21,7 @@ public interface VideoMapper extends BaseMapper<Video> {
      * 查询章节下的所有小节
      *
      * @param chapterId 章节 ID
+     * @return 小节列表
      */
     @Select("select * from video where is_deleted = 0 and chapter_id = #{chapterId}")
     List<VideoVo> listVideosOfChapter(@Param("chapterId") Long chapterId);

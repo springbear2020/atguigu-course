@@ -21,6 +21,7 @@ public interface ChapterMapper extends BaseMapper<Chapter> {
      * 查询课程章节详情（一门课程对应多个章节、一个章节对应多个小节）
      *
      * @param courseId 课程 ID
+     * @return 章节详情列表数据
      */
     @Select("select * from chapter where is_deleted = 0 and course_id = #{courseId}")
     @Results({

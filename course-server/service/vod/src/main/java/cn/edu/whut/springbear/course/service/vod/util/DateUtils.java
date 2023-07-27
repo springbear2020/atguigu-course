@@ -9,7 +9,7 @@ import java.util.Date;
  */
 public class DateUtils {
     /**
-     * 将 java.util.Date 解析为 "2022/10-21" 格式
+     * 将 java.util.Date 解析为 "2022/10/21" 格式
      */
     public static String parseDateWithSlash() {
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");

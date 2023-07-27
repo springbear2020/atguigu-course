@@ -69,7 +69,7 @@ public class CourseServiceImpl extends ServiceImpl<CourseMapper, Course> impleme
         baseMapper.selectPage(page, wrapper);
 
         /*
-         * TODO optimize the way the get the info
+         * TODO optimize
          * 遍历每一条课程信息，根据讲师 ID、一级分类 ID、二级分类 ID 查询其对应的名称
          */
         List<Course> records = page.getRecords();

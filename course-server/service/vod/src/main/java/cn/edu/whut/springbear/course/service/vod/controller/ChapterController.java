@@ -21,9 +21,8 @@ import java.util.List;
  * @author Spring-_-Bear
  * @since 2022-10-22
  */
-@Api(tags = "章节管理接口")
 @RestController
-@CrossOrigin
+@Api(tags = "章节管理接口")
 @RequestMapping("/admin/vod/chapter")
 public class ChapterController {
     @Autowired

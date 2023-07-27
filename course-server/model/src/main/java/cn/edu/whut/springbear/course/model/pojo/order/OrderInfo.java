@@ -75,4 +75,8 @@ public class OrderInfo extends BaseEntity {
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     @TableField("expire_time")
     private Date expireTime;
+
+    @ApiModelProperty("课程名称")
+    @TableField(exist = false)
+    private String courseName;
 }

@@ -12,6 +12,12 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface SubjectMapper extends BaseMapper<Subject> {
+    /**
+     * 获取课程分类名称
+     *
+     * @param id 分类 ID
+     * @return 课程分类名称
+     */
     @Select("select title from subject where is_deleted = 0 and id = #{id}")
     String getSubjectNameById(@Param("id") Long id);
 }

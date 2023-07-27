@@ -10,17 +10,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 /**
- * <p>`
+ * <p>
  * 课程视频 前端控制器
  * </p>
  *
  * @author Spring-_-Bear
  * @since 2022-10-22·
  */
-@Api(tags = "小节管理接口")
 @RestController
+@Api(tags = "小节管理接口")
 @RequestMapping(value = "/admin/vod/video")
-@CrossOrigin
 public class VideoController {
     @Autowired
     private VideoService videoService;

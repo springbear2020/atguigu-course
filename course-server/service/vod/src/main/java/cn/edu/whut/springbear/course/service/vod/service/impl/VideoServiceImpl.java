@@ -8,6 +8,7 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 
 import java.util.List;
 
@@ -32,7 +33,7 @@ public class VideoServiceImpl extends ServiceImpl<VideoMapper, Video> implements
         List<Video> videos = baseMapper.selectList(queryWrapper);
         for (Video video : videos) {
             String videoSourceId = video.getVideoSourceId();
-            if (videoSourceId != null) {
+            if (!StringUtils.isEmpty(videoSourceId)) {
                 vodService.deleteVideo(videoSourceId);
             }
         }
@@ -48,7 +49,7 @@ public class VideoServiceImpl extends ServiceImpl<VideoMapper, Video> implements
         List<Video> videos = baseMapper.selectList(queryWrapper);
         for (Video video : videos) {
             String videoSourceId = video.getVideoSourceId();
-            if (videoSourceId != null) {
+            if (!StringUtils.isEmpty(videoSourceId)) {
                 vodService.deleteVideo(videoSourceId);
             }
         }
@@ -59,12 +60,12 @@ public class VideoServiceImpl extends ServiceImpl<VideoMapper, Video> implements
     @Override
     public boolean deleteVideoById(Long videoId) {
         Video video = baseMapper.selectById(videoId);
-        // 删除腾讯云上存储的视频
         String videoSourceId = video.getVideoSourceId();
-        if (vodService.deleteVideo(videoSourceId)) {
-            baseMapper.deleteById(videoId);
-            return true;
+        // 删除腾讯云上存储的视频
+        if (!StringUtils.isEmpty(videoSourceId)) {
+            vodService.deleteVideo(videoSourceId);
         }
-        return false;
+        // 删除小节记录
+        return baseMapper.deleteById(videoId) == 1;
     }
 }

@@ -17,9 +17,8 @@ import java.util.List;
  * @author Spring-_-Bear
  * @datetime 2022-10-18 21:26:26
  */
-@Api(tags = "讲师管理接口")
 @RestController
-@CrossOrigin
+@Api(tags = "讲师管理接口")
 @RequestMapping("admin/vod/teacher")
 public class TeacherController {
     @Autowired

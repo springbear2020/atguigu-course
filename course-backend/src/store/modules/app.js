@@ -5,7 +5,9 @@ const state = {
     opened: Cookies.get('sidebarStatus') ? !!+Cookies.get('sidebarStatus') : true,
     withoutAnimation: false
   },
-  device: 'desktop'
+  device: 'desktop',
+  // TODO request url
+  url: 'http://localhost:8888'
 }
 
 const mutations = {

@@ -12,7 +12,6 @@ import java.util.Map;
  * @author Spring-_-Bear
  * @datetime 2022-10-19 20:23
  */
-@CrossOrigin
 @RestController
 @Api(tags = "用户管理接口")
 @RequestMapping("admin/vod/user")

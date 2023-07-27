@@ -12,23 +12,12 @@
     <packaging>pom</packaging>
     <modules>
         <module>vod</module>
+        <module>gateway</module>
+        <module>order</module>
     </modules>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
     </properties>
-
-    <dependencies>
-        <dependency>
-            <groupId>cn.edu.whut.springbear</groupId>
-            <artifactId>model</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-            <groupId>cn.edu.whut.springbear</groupId>
-            <artifactId>service-util</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-        </dependency>
-    </dependencies>
 </project>

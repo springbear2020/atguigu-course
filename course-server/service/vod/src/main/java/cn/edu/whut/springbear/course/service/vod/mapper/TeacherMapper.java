@@ -12,6 +12,12 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface TeacherMapper extends BaseMapper<Teacher> {
+    /**
+     * 获取讲师名称
+     *
+     * @param tid 讲师 ID
+     * @return 讲师名称
+     */
     @Select("select name from teacher where is_deleted = 0 and id = #{tid}")
     String getTeacherNameById(@Param("tid") Long tid);
 }

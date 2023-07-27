@@ -13,10 +13,9 @@ import org.springframework.web.multipart.MultipartFile;
  * @author Spring-_-Bear
  * @datetime 2022-10-21 09:43
  */
-@Api(tags = "文件管理接口")
 @RestController
+@Api(tags = "文件管理接口")
 @RequestMapping("admin/vod/transfer")
-@CrossOrigin
 public class TransferController {
     @Autowired
     private TransferService transferService;

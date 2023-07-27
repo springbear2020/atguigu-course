@@ -3,7 +3,7 @@ package cn.edu.whut.springbear.course.service.vod.service.impl;
 
 import cn.edu.whut.springbear.course.service.vod.service.TransferService;
 import cn.edu.whut.springbear.course.service.vod.util.ConstantPropertiesUtils;
-import cn.edu.whut.springbear.course.service.vod.util.FormatUtils;
+import cn.edu.whut.springbear.course.service.vod.util.DateUtils;
 import com.qcloud.cos.COSClient;
 import com.qcloud.cos.ClientConfig;
 import com.qcloud.cos.auth.BasicCOSCredentials;
@@ -15,6 +15,8 @@ import com.qcloud.cos.region.Region;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.util.UUID;
+
 /**
  * @author Spring-_-Bear
  * @datetime 2022-10-21 09:31
@@ -25,7 +27,12 @@ public class TransferServiceImpl implements TransferService {
     public String fileUpload(MultipartFile file) {
         String region = ConstantPropertiesUtils.REGION;
         String bucket = ConstantPropertiesUtils.BUCKET;
-        String key = FormatUtils.uuidFileName(file, true);
+
+        // 文件重命名：eg: 2022/10/24/uuid.png
+        String originalFilename = file.getOriginalFilename();
+        assert originalFilename != null;
+        String fileSuffix = originalFilename.substring(originalFilename.lastIndexOf('.'));
+        String key = DateUtils.parseDateWithSlash() + "/" + UUID.randomUUID().toString().replaceAll("-", "") + fileSuffix;
 
         try {
             // 根据 id 和 key 生成验证对象

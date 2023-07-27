@@ -65,23 +65,24 @@ export const constantRoutes = [
     redirect: '/teacher/list',
     name: 'Teacher',
     meta: { title: '讲师管理', icon: 'el-icon-s-help' },
+    alwaysShow: true,
     children: [
       {
         path: 'list',
         name: 'TeacherList',
-        component: () => import('@/views/teacher/index'),
+        component: () => import('@/views/vod/teacher/TeacherList'),
         meta: { title: '讲师列表', icon: 'table' }
       },
       {
         path: 'insert',
         name: 'TeacherInsert',
-        component: () => import('@/views/teacher/form'),
+        component: () => import('@/views/vod/teacher/TeacherForm.vue'),
         meta: { title: '讲师添加', icon: 'tree' }
       },
       {
         path: 'edit/:id',
         name: 'TeacherEdit',
-        component: () => import('@/views/teacher/form'),
+        component: () => import('@/views/vod/teacher/TeacherForm.vue'),
         meta: { title: '编辑讲师', icon: 'tree' },
         // 隐式路由，组件不在页面中展示
         hidden: true
@@ -96,47 +97,66 @@ export const constantRoutes = [
     redirect: '/course/list',
     name: 'Course',
     meta: { title: '课程管理', icon: 'el-icon-s-help' },
+    alwaysShow: true,
     children: [
-      {
-        path: 'list',
-        name: 'CourseList',
-        component: () => import('@/views/course/list'),
-        meta: { title: '课程列表', icon: 'el-icon-s-help' }
-      },
       {
         path: 'subject',
         name: 'SubjectList',
-        component: () => import('@/views/course/subject'),
+        component: () => import('@/views/vod/course/CourseSubject'),
         meta: { title: '分类列表', icon: 'table' }
+      },
+      {
+        path: 'list',
+        name: 'CourseList',
+        component: () => import('@/views/vod/course/CourseList'),
+        meta: { title: '课程列表', icon: 'el-icon-s-help' }
       },
       {
         path: 'info',
         name: 'CourseForm',
-        component: () => import('@/views/course/form'),
+        component: () => import('@/views/vod/course/CourseInsert'),
         meta: { title: '发布课程' },
         hidden: true
       },
       {
         path: 'info/:id',
         name: 'CourseInfoEdit',
-        component: () => import('@/views/course/form'),
+        component: () => import('@/views/vod/course/CourseInsert'),
         meta: { title: '编辑课程' },
         hidden: true
       },
       {
         path: 'chapter/:id',
         name: 'CourseChapterEdit',
-        component: () => import('@/views/course/form'),
+        component: () => import('@/views/vod/course/CourseInsert'),
         meta: { title: '编辑大纲' },
         hidden: true
       },
       {
         path: 'chart/:id',
         name: 'CourseChart',
-        component: () => import('@/views/course/chart'),
+        component: () => import('@/views/vod/course/CourseChart'),
         meta: { title: '课程统计' },
         hidden: true
-      },
+      }
+    ]
+  },
+
+  // order
+  {
+    path: '/order',
+    component: Layout,
+    redirect: '/order/list',
+    name: 'Order',
+    meta: { title: '订单管理', icon: 'el-icon-truck' },
+    alwaysShow: true,
+    children: [
+      {
+        path: 'order/list',
+        name: 'OrderList',
+        component: () => import('@/views/order/OrderList'),
+        meta: { title: '订单列表', icon: 'el-icon-s-help' }
+      }
     ]
   },
 

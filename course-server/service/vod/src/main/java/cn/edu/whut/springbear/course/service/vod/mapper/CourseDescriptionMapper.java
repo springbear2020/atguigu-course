@@ -17,9 +17,22 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface CourseDescriptionMapper extends BaseMapper<CourseDescription> {
+    /**
+     * 更新课程描述信息
+     *
+     * @param newDescription 课程描述
+     * @param courseId       课程 ID
+     * @return 1：更新成功
+     */
     @Update("update course_description set description = #{newDescription} where course_id = #{courseId}")
     int updateDescriptionByCourseId(@Param("newDescription") String newDescription, @Param("courseId") Long courseId);
 
+    /**
+     * 获取课程描述信息
+     *
+     * @param courseId 课程 ID
+     * @return 课程描述信息
+     */
     @Select("select description from course_description where is_deleted = 0 and course_id = #{courseId}")
     String getDescriptionByCourseId(@Param("courseId") Long courseId);
 }

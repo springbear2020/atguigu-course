@@ -33,11 +33,35 @@ public interface CourseService extends IService<Course> {
      */
     Long saveCourse(CourseFormVo courseFormVo);
 
+    /**
+     * 获取课程详情信息（讲师信息、分类信息、课程描述信息）
+     *
+     * @param courseId 课程 ID
+     * @return 课程详情
+     */
     Course getCourseDetails(Long courseId);
 
+    /**
+     * 更新课程信息
+     *
+     * @param courseFormVo 课程信息
+     * @return true：更新成功
+     */
     boolean updateCourse(CourseFormVo courseFormVo);
 
+    /**
+     * 更新课程状态
+     *
+     * @param courseId 课程 ID
+     * @return true：更新成功
+     */
     boolean updateCourseStatus(Long courseId);
 
+    /**
+     * 删除课程
+     *
+     * @param courseId 课程 ID
+     * @return true：删除成功
+     */
     boolean deleteCourse(Long courseId);
 }

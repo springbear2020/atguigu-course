@@ -1,61 +1,12 @@
 <template>
   <div>
     <van-image width="100%" height="200" src="https://cdn.uviewui.com/uview/swiper/1.jpg"/>
-    <van-list v-model="loading" :finished="finished" finished-text="没有更多了" @load="onLoad">
-      <ul class="list">
-        <li v-for="(item, index) in list" :key="index">
-          <div>
-            <h1 class="van-ellipsis">第一课 NodeJs 从入门到精通，详情介绍的是 NodeJs 的各种技术体系内容</h1>
-            <span>直播：2021-11-03 11:12:23</span>
-          </div>
-          <p>[回放]</p>
-        </li>
-      </ul>
-    </van-list>
   </div>
 </template>
 
 <script>
 export default {
-  name: "Home",
-  data() {
-    return {
-      list: [],
-      loading: false,
-      finished: false,
-    };
-  },
-  mounted() {
-    this.axios
-        .get("https://jsonplaceholder.typicode.com/todos/1")
-        .then((response) => {
-          console.log(response.data);
-        });
-  },
-  methods: {
-    // 加载模拟数据
-    onLoad() {
-      // 异步更新数据
-      setTimeout(() => {
-        for (let i = 0; i < 10; i++) {
-          const time = new Date().getTime();
-          this.list.push({
-            id: i,
-            title:
-                "第一课 NodeJs 从入门到精通，详情介绍的是NodeJs的各种技术体系内容" +
-                i,
-            time,
-          });
-        }
-        // 加载状态结束
-        this.loading = false;
-        // 数据全部加载完成
-        if (this.list.length >= 40) {
-          this.finished = true;
-        }
-      }, 1000);
-    },
-  },
+  name: "Home"
 };
 </script>
 

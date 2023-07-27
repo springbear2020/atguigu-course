@@ -10,6 +10,7 @@ import lombok.EqualsAndHashCode;
 
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.List;
 
 /**
  * @author Spring-_-Bear
@@ -89,4 +90,8 @@ public class Course extends BaseEntity {
     @ApiModelProperty("课程描述信息")
     @TableField(exist = false)
     private String description;
+
+    @ApiModelProperty("课程章节信息")
+    @TableField(exist = false)
+    private List<Chapter> chapters;
 }

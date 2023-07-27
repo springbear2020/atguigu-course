@@ -74,7 +74,7 @@ public class MenuServiceImpl extends ServiceImpl<MenuMapper, Menu> implements Me
                 // 页面跳转型子菜单
                 if ("view".equals(menu.getType())) {
                     view.put("name", menu.getName());
-                    view.put("url", viewBaseUrl + menu.getUrl());
+                    view.put("url", viewBaseUrl + "/#" + menu.getUrl());
                 } else {
                     // 事件型子菜单，如回复消息等事件
                     view.put("name", menu.getName());

@@ -1,17 +1,16 @@
 package cn.edu.whut.springbear.course.service.vod.service.impl;
 
+import cn.edu.whut.springbear.course.common.model.pojo.vod.Chapter;
 import cn.edu.whut.springbear.course.common.model.pojo.vod.Course;
 import cn.edu.whut.springbear.course.common.model.pojo.vod.CourseDescription;
+import cn.edu.whut.springbear.course.common.model.pojo.vod.Teacher;
 import cn.edu.whut.springbear.course.common.model.vo.vod.CourseFormVo;
 import cn.edu.whut.springbear.course.common.model.vo.vod.CourseQueryVo;
 import cn.edu.whut.springbear.course.service.vod.mapper.CourseDescriptionMapper;
 import cn.edu.whut.springbear.course.service.vod.mapper.CourseMapper;
 import cn.edu.whut.springbear.course.service.vod.mapper.SubjectMapper;
 import cn.edu.whut.springbear.course.service.vod.mapper.TeacherMapper;
-import cn.edu.whut.springbear.course.service.vod.service.ChapterService;
-import cn.edu.whut.springbear.course.service.vod.service.CourseDescriptionService;
-import cn.edu.whut.springbear.course.service.vod.service.CourseService;
-import cn.edu.whut.springbear.course.service.vod.service.VideoService;
+import cn.edu.whut.springbear.course.service.vod.service.*;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
@@ -45,6 +44,8 @@ public class CourseServiceImpl extends ServiceImpl<CourseMapper, Course> impleme
     private VideoService videoService;
     @Autowired
     private CourseDescriptionService courseDescriptionService;
+    @Autowired
+    private TeacherService teacherService;
 
 
     @Override
@@ -69,7 +70,7 @@ public class CourseServiceImpl extends ServiceImpl<CourseMapper, Course> impleme
         baseMapper.selectPage(page, wrapper);
 
         /*
-         * TODO optimize 遍历每一条课程信息，根据讲师 ID、一级分类 ID、二级分类 ID 查询其对应的名称
+         * 遍历每一条课程信息，根据讲师 ID、一级分类 ID、二级分类 ID 查询其对应的名称
          */
         List<Course> records = page.getRecords();
         records.forEach(item -> {
@@ -102,11 +103,13 @@ public class CourseServiceImpl extends ServiceImpl<CourseMapper, Course> impleme
     public Course getCourseDetails(Long courseId) {
         Course course = this.getById(courseId);
         // 获取课程教师信息
-        course.setTeacherName(teacherMapper.getTeacherNameById(course.getTeacherId()));
-        // 获取课程分类信息、一级分页和二级分类
+        Teacher teacher = teacherService.getById(course.getTeacherId());
+        course.setTeacherName(teacher.getName());
+        course.setTeacherAvatar(teacher.getAvatar());
+        // 获取课程分类信息：一级分类和二级分类
         course.setParentSubjectName(subjectMapper.getSubjectNameById(course.getSubjectParentId()));
         course.setSubjectName(subjectMapper.getSubjectNameById(course.getSubjectId()));
-        // 获取课程详情信息
+        // 获取课程描述信息
         course.setDescription(courseDescriptionMapper.getDescriptionByCourseId(courseId));
         return course;
     }
@@ -144,6 +147,21 @@ public class CourseServiceImpl extends ServiceImpl<CourseMapper, Course> impleme
     public List<Course> listCoursesByName(String courseName) {
         QueryWrapper<Course> queryWrapper = new QueryWrapper<>();
         queryWrapper.like("title", courseName);
-        return baseMapper.selectList(queryWrapper);
+        // 查询每门课程的描述信息
+        List<Course> courses = baseMapper.selectList(queryWrapper);
+        for (Course course : courses) {
+            String description = courseDescriptionMapper.getDescriptionByCourseId(course.getId());
+            course.setDescription(description);
+        }
+        return courses;
+    }
+
+    @Override
+    public Course getCourse(Long courseId) {
+        Course course = this.getCourseDetails(courseId);
+        // 获取课程大纲信息：一个课程包含多个章节，每个章节包含多个小节
+        List<Chapter> chapters = chapterService.listChaptersOfCourse(courseId);
+        course.setChapters(chapters);
+        return course;
     }
 }

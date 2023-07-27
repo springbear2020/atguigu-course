@@ -1,4 +1,4 @@
-package cn.edu.whut.springbear.course.service.wechat.controller;
+package cn.edu.whut.springbear.course.service.wechat.controller.admin;
 
 
 import cn.edu.whut.springbear.course.common.model.pojo.wechat.Menu;

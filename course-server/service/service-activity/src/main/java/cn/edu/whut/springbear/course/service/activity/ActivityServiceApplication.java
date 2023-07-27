@@ -13,7 +13,7 @@ import org.springframework.context.annotation.ComponentScan;
 @SpringBootApplication
 @EnableDiscoveryClient
 @ComponentScan("cn.edu.whut.springbear.course")
-@EnableFeignClients(basePackages = "cn.edu.whut.springbear.course.api.client.user")
+@EnableFeignClients(basePackages = "cn.edu.whut.springbear.course.client.user")
 public class ActivityServiceApplication {
     public static void main(String[] args) {
         SpringApplication.run(ActivityServiceApplication.class, args);

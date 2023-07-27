@@ -1,4 +1,4 @@
-package cn.edu.whut.springbear.course.common.util;
+package cn.edu.whut.springbear.course.common.util.alogrithm;
 
 import io.jsonwebtoken.*;
 

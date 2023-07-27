@@ -15,7 +15,7 @@ import org.springframework.context.annotation.ComponentScan;
 @EnableDiscoveryClient
 @ComponentScan("cn.edu.whut.springbear.course")
 @MapperScan("cn.edu.whut.springbear.course.service.wechat.mapper")
-@EnableFeignClients(basePackages = "cn.edu.whut.springbear.course.api.client.course")
+@EnableFeignClients(basePackages = "cn.edu.whut.springbear.course.client.course")
 public class WeChatServiceApplication {
     public static void main(String[] args) {
         SpringApplication.run(WeChatServiceApplication.class);

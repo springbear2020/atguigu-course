@@ -1,18 +1,21 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <van-button round block type="info" @click="clearToken">clear token</van-button>
-    </div>
     <router-view/>
   </div>
 </template>
 
 
 <script>
+import {mapState} from 'vuex'
+
 export default {
   created() {
     // 进入任何页面前都需要进行微信授权
     this.wechatAuthorization();
+  },
+
+  computed: {
+    ...mapState(['baseURL'])
   },
 
   methods: {
@@ -22,16 +25,18 @@ export default {
 
       // 先判断本次请求的路径中是否含有 token 信息，若存在则存入本地 localStorage
       if (token !== '') {
+        // TODO replace
         window.localStorage.setItem('token', token);
+        // window.localStorage.removeItem('token')
       }
 
-      // 访问所有页面都必须登录，两次调整登录，这里与接口返回 208 状态码
+      // 访问所有页面都必须登录
       token = window.localStorage.getItem('token') || '';
 
       // 请求服务器获取 token 信息，token 获取成功重定向到到请求的页面 from
       if (token === '') {
         let from = window.location.href.replace('#', 'placeholder')
-        window.location = 'http://course.5gzvip.91tunnel.com/api/user/wechat/auth?from=' + from
+        window.location = this.baseURL + '/api/user/auth?from=' + from
       }
     },
 
@@ -50,11 +55,6 @@ export default {
       }
       return '';
     },
-
-    // 清除本地存储的用户信息
-    clearToken() {
-      window.localStorage.setItem('token', '');
-    }
   }
 };
 </script>

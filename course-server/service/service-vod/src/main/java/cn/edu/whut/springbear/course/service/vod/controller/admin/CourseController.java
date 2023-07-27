@@ -1,4 +1,4 @@
-package cn.edu.whut.springbear.course.service.vod.controller;
+package cn.edu.whut.springbear.course.service.vod.controller.admin;
 
 
 import cn.edu.whut.springbear.course.common.model.pojo.vod.Course;
@@ -12,8 +12,6 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 /**
  * <p>
@@ -71,15 +69,6 @@ public class CourseController {
             @ApiParam(name = "courseQueryVo", value = "额外查询条件") CourseQueryVo courseQueryVo) {
         Page<Course> coursePage = courseService.listCoursePageData(pageNum, pageSize, courseQueryVo);
         return coursePage.getRecords().isEmpty() ? Result.fail("查询课程分页数据失败", null) : Result.success("查询课程分页数据成功", coursePage);
-    }
-
-    /**
-     * TODO 远程调用：模糊查询课程信息
-     */
-    @ApiOperation("查询课程（模糊查询）")
-    @GetMapping("list/{courseName}")
-    public List<Course> listCoursesByName(@ApiParam(name = "courseName", value = "课程名称", required = true) @PathVariable String courseName) {
-        return courseService.listCoursesByName(courseName);
     }
 }
 

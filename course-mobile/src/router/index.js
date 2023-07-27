@@ -28,18 +28,17 @@ const routes = [
     //     component: () =>
     //         import('../views/liveInfo.vue'),
     // },
-    // {
-    //     path: '/course/:subjectId',
-    //     name: 'Course',
-    //     component: () =>
-    //         import('../views/course.vue'),
-    // },
-    // {
-    //     path: '/courseInfo/:courseId',
-    //     name: 'CourseInfo',
-    //     component: () =>
-    //         import('../views/courseInfo.vue'),
-    // },
+    {
+        path: '/course/:subjectId',
+        name: 'Course',
+        component: () => import('../views/Course'),
+    },
+    {
+        path: '/course/detail/:courseId',
+        name: 'CourseInfo',
+        component: () =>
+            import('../views/CourseDetail'),
+    },
     // {
     //     path: '/play/:courseId/:videoId',
     //     name: 'Play',

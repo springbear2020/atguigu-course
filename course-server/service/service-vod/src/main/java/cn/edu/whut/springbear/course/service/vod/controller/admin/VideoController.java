@@ -1,4 +1,4 @@
-package cn.edu.whut.springbear.course.service.vod.controller;
+package cn.edu.whut.springbear.course.service.vod.controller.admin;
 
 
 import cn.edu.whut.springbear.course.common.model.pojo.vod.Video;

@@ -1,7 +1,7 @@
 package cn.edu.whut.springbear.course.service.user.service.impl;
 
 import cn.edu.whut.springbear.course.common.model.pojo.user.UserInfo;
-import cn.edu.whut.springbear.course.common.util.JwtHelper;
+import cn.edu.whut.springbear.course.common.util.alogrithm.JwtHelper;
 import cn.edu.whut.springbear.course.common.util.exception.CourseException;
 import cn.edu.whut.springbear.course.service.user.service.UserInfoService;
 import cn.edu.whut.springbear.course.service.user.service.WeChatService;

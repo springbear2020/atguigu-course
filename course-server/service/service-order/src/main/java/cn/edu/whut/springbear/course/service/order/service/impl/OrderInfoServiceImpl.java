@@ -52,7 +52,7 @@ public class OrderInfoServiceImpl extends ServiceImpl<OrderInfoMapper, OrderInfo
 
         Page<OrderInfo> page = new Page<>(curNum, pageSize);
         baseMapper.selectPage(page, wrapper);
-        // TODO optimize 遍历所有订单信息，查询每条订单的课程信息
+        // 遍历所有订单信息，查询每条订单的课程信息
         List<OrderInfo> records = page.getRecords();
         for (OrderInfo record : records) {
             String orderCourseName = orderDetailMapper.getOrderCourseName(record.getId());

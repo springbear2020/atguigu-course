@@ -1,6 +1,6 @@
 package cn.edu.whut.springbear.course.service.activity.service.impl;
 
-import cn.edu.whut.springbear.course.api.client.user.UserFeignClient;
+import cn.edu.whut.springbear.course.client.user.UserFeignClient;
 import cn.edu.whut.springbear.course.common.model.pojo.activity.CouponInfo;
 import cn.edu.whut.springbear.course.common.model.pojo.activity.CouponUse;
 import cn.edu.whut.springbear.course.common.model.pojo.user.UserInfo;
@@ -53,7 +53,7 @@ public class CouponInfoServiceImpl extends ServiceImpl<CouponInfoMapper, CouponI
         // 遍历查询到的优惠券信息，根据用户 ID 远程调用接口查询用户信息
         List<CouponUse> records = page.getRecords();
         for (CouponUse record : records) {
-            // TODO 远程调用：查询用户信息
+            // 远程调用：查询用户信息
             UserInfo userInfo = userFeignClient.getUserById(record.getUserId());
             record.setUserInfo(userInfo);
         }

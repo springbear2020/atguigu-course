@@ -1,4 +1,4 @@
-package cn.edu.whut.springbear.course.api.client.user;
+package cn.edu.whut.springbear.course.client.user;
 
 import cn.edu.whut.springbear.course.common.model.pojo.user.UserInfo;
 import org.springframework.cloud.openfeign.FeignClient;
@@ -17,6 +17,6 @@ public interface UserFeignClient {
      * @param id 用户 ID
      * @return 用户信息
      */
-    @GetMapping("admin/user/get/{id}")
+    @GetMapping("feign/user/get/{id}")
     UserInfo getUserById(@PathVariable Long id);
 }

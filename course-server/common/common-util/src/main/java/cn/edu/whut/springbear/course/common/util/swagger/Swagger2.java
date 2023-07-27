@@ -1,4 +1,4 @@
-package cn.edu.whut.springbear.course.common.util;
+package cn.edu.whut.springbear.course.common.util.swagger;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

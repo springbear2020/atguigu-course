@@ -1,4 +1,4 @@
-package cn.edu.whut.springbear.course.api.client.course;
+package cn.edu.whut.springbear.course.client.course;
 
 import cn.edu.whut.springbear.course.common.model.pojo.vod.Course;
 import org.springframework.cloud.openfeign.FeignClient;
@@ -19,6 +19,6 @@ public interface CourseFeignClient {
      * @param title 课程名称
      * @return 课程列表
      */
-    @GetMapping("admin/vod/course/list/{title}")
+    @GetMapping("feign/vod/course/list/{title}")
     List<Course> listCoursesByTitle(@PathVariable String title);
 }

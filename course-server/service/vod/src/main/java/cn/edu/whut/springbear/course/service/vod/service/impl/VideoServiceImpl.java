@@ -1,6 +1,6 @@
 package cn.edu.whut.springbear.course.service.vod.service.impl;
 
-import cn.edu.whut.springbear.course.model.pojo.vod.Video;
+import cn.edu.whut.springbear.course.common.model.pojo.vod.Video;
 import cn.edu.whut.springbear.course.service.vod.mapper.VideoMapper;
 import cn.edu.whut.springbear.course.service.vod.service.VideoService;
 import cn.edu.whut.springbear.course.service.vod.service.VodService;

@@ -1,6 +1,6 @@
 package cn.edu.whut.springbear.course.service.vod.service;
 
-import cn.edu.whut.springbear.course.model.pojo.vod.Teacher;
+import cn.edu.whut.springbear.course.common.model.pojo.vod.Teacher;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;

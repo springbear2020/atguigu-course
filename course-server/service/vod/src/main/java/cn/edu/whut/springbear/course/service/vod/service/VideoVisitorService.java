@@ -1,7 +1,7 @@
 package cn.edu.whut.springbear.course.service.vod.service;
 
-import cn.edu.whut.springbear.course.model.pojo.vod.VideoVisitor;
-import cn.edu.whut.springbear.course.model.vo.vod.VideoVisitorCountVo;
+import cn.edu.whut.springbear.course.common.model.pojo.vod.VideoVisitor;
+import cn.edu.whut.springbear.course.common.model.vo.vod.VideoVisitorCountVo;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 import java.util.List;

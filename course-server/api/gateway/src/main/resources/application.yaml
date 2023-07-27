@@ -1,0 +1,34 @@
+server:
+  port: 8888
+spring:
+  application:
+    name: course-gateway
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+        - id: course-service-vod
+          uri: lb://course-service-vod
+          predicates:
+            - Path=/*/vod/**
+        - id: course-service-order
+          uri: lb://course-service-order
+          predicates:
+            - Path=/*/order/**
+        - id: course-service-activity
+          uri: lb://course-service-activity
+          predicates:
+            - Path=/*/activity/**
+        - id: course-service-user
+          uri: lb://course-service-user
+          predicates:
+            - Path=/*/user/**
+        - id: course-service-wechat
+          uri: lb://course-service-wechat
+          predicates:
+            - Path=/*/wechat/**

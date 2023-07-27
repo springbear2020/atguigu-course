@@ -1,6 +1,6 @@
 package cn.edu.whut.springbear.course.service.vod.listener;
 
-import cn.edu.whut.springbear.course.model.pojo.vod.Subject;
+import cn.edu.whut.springbear.course.common.model.pojo.vod.Subject;
 import cn.edu.whut.springbear.course.service.vod.mapper.SubjectMapper;
 import com.alibaba.excel.context.AnalysisContext;
 import com.alibaba.excel.event.AnalysisEventListener;

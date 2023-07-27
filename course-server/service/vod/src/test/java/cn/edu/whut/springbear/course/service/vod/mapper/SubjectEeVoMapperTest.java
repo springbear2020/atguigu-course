@@ -1,6 +1,6 @@
 package cn.edu.whut.springbear.course.service.vod.mapper;
 
-import cn.edu.whut.springbear.course.model.vo.vod.SubjectEeVo;
+import cn.edu.whut.springbear.course.common.model.vo.vod.SubjectEeVo;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;

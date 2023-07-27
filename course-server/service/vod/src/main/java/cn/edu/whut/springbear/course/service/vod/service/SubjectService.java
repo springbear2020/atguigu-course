@@ -1,6 +1,6 @@
 package cn.edu.whut.springbear.course.service.vod.service;
 
-import cn.edu.whut.springbear.course.model.pojo.vod.Subject;
+import cn.edu.whut.springbear.course.common.model.pojo.vod.Subject;
 import com.baomidou.mybatisplus.extension.service.IService;
 import org.springframework.web.multipart.MultipartFile;
 

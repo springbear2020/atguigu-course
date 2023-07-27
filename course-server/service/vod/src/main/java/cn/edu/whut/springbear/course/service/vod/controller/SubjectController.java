@@ -1,7 +1,7 @@
 package cn.edu.whut.springbear.course.service.vod.controller;
 
-import cn.edu.whut.springbear.course.model.pojo.vod.Subject;
-import cn.edu.whut.springbear.course.service.util.Result;
+import cn.edu.whut.springbear.course.common.model.pojo.vod.Subject;
+import cn.edu.whut.springbear.course.common.util.Result;
 import cn.edu.whut.springbear.course.service.vod.service.SubjectService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;

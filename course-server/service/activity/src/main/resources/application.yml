@@ -1,0 +1,23 @@
+server:
+  port: 8083
+spring:
+  application:
+    name: course-service-activity
+  profiles:
+    # 环境设置：dev、test、prod
+    active: dev
+  datasource:
+    url: jdbc:mysql://localhost:3306/course_activigy?characterEncoding=utf-8&useSSL=false
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: admin
+    password: admin
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl

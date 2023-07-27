@@ -1,6 +1,6 @@
 package cn.edu.whut.springbear.course.service.vod.service;
 
-import cn.edu.whut.springbear.course.model.pojo.vod.Video;
+import cn.edu.whut.springbear.course.common.model.pojo.vod.Video;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**

@@ -1,7 +1,7 @@
 package cn.edu.whut.springbear.course.service.order.service.impl;
 
-import cn.edu.whut.springbear.course.model.pojo.order.OrderInfo;
-import cn.edu.whut.springbear.course.model.vo.order.OrderInfoQueryVo;
+import cn.edu.whut.springbear.course.common.model.pojo.order.OrderInfo;
+import cn.edu.whut.springbear.course.common.model.vo.order.OrderInfoQueryVo;
 import cn.edu.whut.springbear.course.service.order.mapper.OrderDetailMapper;
 import cn.edu.whut.springbear.course.service.order.mapper.OrderInfoMapper;
 import cn.edu.whut.springbear.course.service.order.service.OrderInfoService;

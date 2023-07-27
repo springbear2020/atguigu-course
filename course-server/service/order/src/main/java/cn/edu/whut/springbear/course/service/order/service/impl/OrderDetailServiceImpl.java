@@ -1,6 +1,6 @@
 package cn.edu.whut.springbear.course.service.order.service.impl;
 
-import cn.edu.whut.springbear.course.model.pojo.order.OrderDetail;
+import cn.edu.whut.springbear.course.common.model.pojo.order.OrderDetail;
 import cn.edu.whut.springbear.course.service.order.mapper.OrderDetailMapper;
 import cn.edu.whut.springbear.course.service.order.service.OrderDetailService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;

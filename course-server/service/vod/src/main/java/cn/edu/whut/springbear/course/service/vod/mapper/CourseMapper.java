@@ -1,6 +1,6 @@
 package cn.edu.whut.springbear.course.service.vod.mapper;
 
-import cn.edu.whut.springbear.course.model.pojo.vod.Course;
+import cn.edu.whut.springbear.course.common.model.pojo.vod.Course;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.springframework.stereotype.Repository;
 

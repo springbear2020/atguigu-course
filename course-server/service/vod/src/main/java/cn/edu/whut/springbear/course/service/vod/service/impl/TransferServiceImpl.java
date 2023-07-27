@@ -1,9 +1,9 @@
 package cn.edu.whut.springbear.course.service.vod.service.impl;
 
 
+import cn.edu.whut.springbear.course.common.util.DateUtils;
 import cn.edu.whut.springbear.course.service.vod.service.TransferService;
-import cn.edu.whut.springbear.course.service.vod.util.ConstantPropertiesUtils;
-import cn.edu.whut.springbear.course.service.vod.util.DateUtils;
+import cn.edu.whut.springbear.course.service.vod.util.PropertiesUtils;
 import com.qcloud.cos.COSClient;
 import com.qcloud.cos.ClientConfig;
 import com.qcloud.cos.auth.BasicCOSCredentials;
@@ -25,8 +25,8 @@ import java.util.UUID;
 public class TransferServiceImpl implements TransferService {
     @Override
     public String fileUpload(MultipartFile file) {
-        String region = ConstantPropertiesUtils.REGION;
-        String bucket = ConstantPropertiesUtils.BUCKET;
+        String region = PropertiesUtils.REGION;
+        String bucket = PropertiesUtils.BUCKET;
 
         // 文件重命名：eg: 2022/10/24/uuid.png
         String originalFilename = file.getOriginalFilename();
@@ -36,7 +36,7 @@ public class TransferServiceImpl implements TransferService {
 
         try {
             // 根据 id 和 key 生成验证对象
-            COSCredentials credential = new BasicCOSCredentials(ConstantPropertiesUtils.SECRET_ID, ConstantPropertiesUtils.SECRET_KEY);
+            COSCredentials credential = new BasicCOSCredentials(PropertiesUtils.SECRET_ID, PropertiesUtils.SECRET_KEY);
             // 客户端配置上传地域和上传所用协议
             ClientConfig clientConfig = new ClientConfig(new Region(region));
             clientConfig.setHttpProtocol(HttpProtocol.https);

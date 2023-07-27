@@ -1,8 +1,8 @@
 package cn.edu.whut.springbear.course.service.vod.service.impl;
 
-import cn.edu.whut.springbear.course.service.util.exception.CourseException;
+import cn.edu.whut.springbear.course.common.util.exception.CourseException;
 import cn.edu.whut.springbear.course.service.vod.service.VodService;
-import cn.edu.whut.springbear.course.service.vod.util.ConstantPropertiesUtils;
+import cn.edu.whut.springbear.course.service.vod.util.PropertiesUtils;
 import com.qcloud.vod.VodUploadClient;
 import com.qcloud.vod.model.VodUploadRequest;
 import com.qcloud.vod.model.VodUploadResponse;
@@ -45,8 +45,8 @@ public class VodServiceImpl implements VodService {
         request.setMediaName(fileName);
         try {
             // 视频文件上传
-            VodUploadClient client = new VodUploadClient(ConstantPropertiesUtils.SECRET_ID, ConstantPropertiesUtils.SECRET_KEY);
-            VodUploadResponse response = client.upload(ConstantPropertiesUtils.REGION, request);
+            VodUploadClient client = new VodUploadClient(PropertiesUtils.SECRET_ID, PropertiesUtils.SECRET_KEY);
+            VodUploadResponse response = client.upload(PropertiesUtils.REGION, request);
             // 返回文件 id 保存到业务表，用于控制视频播放
             return response.getFileId();
         } catch (Exception e) {
@@ -57,9 +57,9 @@ public class VodServiceImpl implements VodService {
     @Override
     public boolean deleteVideo(String videoId) {
         // 实例化一个认证对象
-        Credential credential = new Credential(ConstantPropertiesUtils.SECRET_ID, ConstantPropertiesUtils.SECRET_KEY);
+        Credential credential = new Credential(PropertiesUtils.SECRET_ID, PropertiesUtils.SECRET_KEY);
         // 实例化要请求产品的 client 对象,clientProfile 是可选的
-        VodClient client = new VodClient(credential, ConstantPropertiesUtils.REGION);
+        VodClient client = new VodClient(credential, PropertiesUtils.REGION);
         // 实例化一个请求对象，每个接口都会对应一个 request 对象
         DeleteMediaRequest req = new DeleteMediaRequest();
         req.setFileId(videoId);

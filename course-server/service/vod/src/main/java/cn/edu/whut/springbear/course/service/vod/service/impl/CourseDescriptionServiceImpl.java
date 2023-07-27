@@ -1,6 +1,6 @@
 package cn.edu.whut.springbear.course.service.vod.service.impl;
 
-import cn.edu.whut.springbear.course.model.pojo.vod.CourseDescription;
+import cn.edu.whut.springbear.course.common.model.pojo.vod.CourseDescription;
 import cn.edu.whut.springbear.course.service.vod.mapper.CourseDescriptionMapper;
 import cn.edu.whut.springbear.course.service.vod.service.CourseDescriptionService;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;

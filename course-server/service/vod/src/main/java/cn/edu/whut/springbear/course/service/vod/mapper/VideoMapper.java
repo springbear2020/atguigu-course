@@ -1,7 +1,7 @@
 package cn.edu.whut.springbear.course.service.vod.mapper;
 
-import cn.edu.whut.springbear.course.model.pojo.vod.Video;
-import cn.edu.whut.springbear.course.model.vo.vod.VideoVo;
+import cn.edu.whut.springbear.course.common.model.pojo.vod.Video;
+import cn.edu.whut.springbear.course.common.model.vo.vod.VideoVo;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;

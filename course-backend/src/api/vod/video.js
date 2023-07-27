@@ -35,7 +35,7 @@ export default {
   },
   findCount(courseId, startDate, endDate) {
     return request({
-      url: `${BASE}/visitor/count/${courseId}/${startDate}/${endDate}`,
+      url: `${BASE}/count/${courseId}/${startDate}/${endDate}`,
       method: 'get'
     })
   }

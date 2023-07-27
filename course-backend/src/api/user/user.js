@@ -1,8 +1,10 @@
 import request from '@/utils/request'
 
+const BASE = 'admin/user'
+
 export function login(data) {
   return request({
-    url: '/admin/vod/user/login',
+    url: `${BASE}/login`,
     method: 'post',
     data
   })
@@ -10,7 +12,7 @@ export function login(data) {
 
 export function getInfo(token) {
   return request({
-    url: '/admin/vod/user/info',
+    url: `${BASE}/info`,
     method: 'get',
     params: { token }
   })
@@ -18,7 +20,7 @@ export function getInfo(token) {
 
 export function logout() {
   return request({
-    url: '/admin/vod/user/logout',
+    url: `${BASE}/logout`,
     method: 'post'
   })
 }

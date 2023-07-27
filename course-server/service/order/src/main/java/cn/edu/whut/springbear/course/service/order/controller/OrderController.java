@@ -1,10 +1,10 @@
 package cn.edu.whut.springbear.course.service.order.controller;
 
 
-import cn.edu.whut.springbear.course.model.pojo.order.OrderInfo;
-import cn.edu.whut.springbear.course.model.vo.order.OrderInfoQueryVo;
+import cn.edu.whut.springbear.course.common.model.pojo.order.OrderInfo;
+import cn.edu.whut.springbear.course.common.model.vo.order.OrderInfoQueryVo;
+import cn.edu.whut.springbear.course.common.util.Result;
 import cn.edu.whut.springbear.course.service.order.service.OrderInfoService;
-import cn.edu.whut.springbear.course.service.util.Result;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -23,8 +23,8 @@ import org.springframework.web.bind.annotation.RestController;
  * @author Spring-_-Bear
  * @since 2022-10-24
  */
-@Api("订单管理接口")
 @RestController
+@Api(tags = "订单管理接口")
 @RequestMapping("/admin/order")
 public class OrderController {
     @Autowired

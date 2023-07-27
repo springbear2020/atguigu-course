@@ -1,9 +1,9 @@
 package cn.edu.whut.springbear.course.service.vod.service.impl;
 
-import cn.edu.whut.springbear.course.model.pojo.vod.Course;
-import cn.edu.whut.springbear.course.model.pojo.vod.CourseDescription;
-import cn.edu.whut.springbear.course.model.vo.vod.CourseFormVo;
-import cn.edu.whut.springbear.course.model.vo.vod.CourseQueryVo;
+import cn.edu.whut.springbear.course.common.model.pojo.vod.Course;
+import cn.edu.whut.springbear.course.common.model.pojo.vod.CourseDescription;
+import cn.edu.whut.springbear.course.common.model.vo.vod.CourseFormVo;
+import cn.edu.whut.springbear.course.common.model.vo.vod.CourseQueryVo;
 import cn.edu.whut.springbear.course.service.vod.mapper.CourseDescriptionMapper;
 import cn.edu.whut.springbear.course.service.vod.mapper.CourseMapper;
 import cn.edu.whut.springbear.course.service.vod.mapper.SubjectMapper;

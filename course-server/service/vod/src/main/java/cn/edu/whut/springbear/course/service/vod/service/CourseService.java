@@ -1,8 +1,8 @@
 package cn.edu.whut.springbear.course.service.vod.service;
 
-import cn.edu.whut.springbear.course.model.pojo.vod.Course;
-import cn.edu.whut.springbear.course.model.vo.vod.CourseFormVo;
-import cn.edu.whut.springbear.course.model.vo.vod.CourseQueryVo;
+import cn.edu.whut.springbear.course.common.model.pojo.vod.Course;
+import cn.edu.whut.springbear.course.common.model.vo.vod.CourseFormVo;
+import cn.edu.whut.springbear.course.common.model.vo.vod.CourseQueryVo;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.IService;
 

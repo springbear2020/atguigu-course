@@ -1,6 +1,6 @@
 package cn.edu.whut.springbear.course.service.vod.controller;
 
-import cn.edu.whut.springbear.course.service.util.Result;
+import cn.edu.whut.springbear.course.common.util.Result;
 import cn.edu.whut.springbear.course.service.vod.service.VodService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;

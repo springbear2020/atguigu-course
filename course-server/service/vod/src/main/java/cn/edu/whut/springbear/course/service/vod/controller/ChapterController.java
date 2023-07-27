@@ -1,8 +1,8 @@
 package cn.edu.whut.springbear.course.service.vod.controller;
 
 
-import cn.edu.whut.springbear.course.model.pojo.vod.Chapter;
-import cn.edu.whut.springbear.course.service.util.Result;
+import cn.edu.whut.springbear.course.common.model.pojo.vod.Chapter;
+import cn.edu.whut.springbear.course.common.util.Result;
 import cn.edu.whut.springbear.course.service.vod.service.ChapterService;
 import cn.edu.whut.springbear.course.service.vod.service.VideoService;
 import io.swagger.annotations.Api;
@@ -30,18 +30,23 @@ public class ChapterController {
     @Autowired
     private VideoService videoService;
 
-    @ApiOperation("获取课程章节数据")
-    @GetMapping("list/{courseId}")
-    public Result listChaptersOfCourse(
-            @ApiParam(name = "courseId", value = "课程 ID") @PathVariable Long courseId) {
-        List<Chapter> chapters = chapterService.listChaptersOfCourse(courseId);
-        return Result.success("查询课程章节数据成功", chapters);
-    }
-
     @ApiOperation("添加章节")
     @PostMapping("save")
     public Result save(@RequestBody Chapter chapter) {
         return chapterService.save(chapter) ? Result.success("添加章节成功", null) : Result.fail("添加章节失败", null);
+    }
+
+    @ApiOperation("删除章节")
+    @DeleteMapping("remove/{id}")
+    public Result remove(@PathVariable Long id) {
+        videoService.deleteVideosOfChapter(id);
+        return chapterService.removeById(id) ? Result.success("删除章节成功", null) : Result.fail("删除章节失败", null);
+    }
+
+    @ApiOperation("更新章节")
+    @PutMapping("update")
+    public Result update(@RequestBody Chapter chapter) {
+        return chapterService.updateById(chapter) ? Result.success("更新章节成功", null) : Result.fail("更新章节失败", null);
     }
 
     @ApiOperation("查询章节数据")
@@ -51,17 +56,12 @@ public class ChapterController {
         return Result.success("查询章节数据成功", chapter);
     }
 
-    @ApiOperation("更新章节")
-    @PutMapping("update")
-    public Result update(@RequestBody Chapter chapter) {
-        return chapterService.updateById(chapter) ? Result.success("更新章节成功", null) : Result.fail("更新章节失败", null);
-    }
-
-    @ApiOperation("删除章节")
-    @DeleteMapping("remove/{id}")
-    public Result remove(@PathVariable Long id) {
-        videoService.deleteVideosOfChapter(id);
-        return chapterService.removeById(id) ? Result.success("删除章节成功", null) : Result.fail("删除章节失败", null);
+    @ApiOperation("获取课程章节数据")
+    @GetMapping("list/{courseId}")
+    public Result listChaptersOfCourse(
+            @ApiParam(name = "courseId", value = "课程 ID") @PathVariable Long courseId) {
+        List<Chapter> chapters = chapterService.listChaptersOfCourse(courseId);
+        return Result.success("查询课程章节数据成功", chapters);
     }
 }
 

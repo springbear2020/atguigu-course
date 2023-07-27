@@ -1,7 +1,7 @@
 package cn.edu.whut.springbear.course.service.order.service;
 
-import cn.edu.whut.springbear.course.model.pojo.order.OrderInfo;
-import cn.edu.whut.springbear.course.model.vo.order.OrderInfoQueryVo;
+import cn.edu.whut.springbear.course.common.model.pojo.order.OrderInfo;
+import cn.edu.whut.springbear.course.common.model.vo.order.OrderInfoQueryVo;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.IService;
 

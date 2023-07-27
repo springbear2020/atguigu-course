@@ -1,8 +1,8 @@
 package cn.edu.whut.springbear.course.service.vod.service.impl;
 
-import cn.edu.whut.springbear.course.model.pojo.vod.Subject;
-import cn.edu.whut.springbear.course.model.vo.vod.SubjectEeVo;
-import cn.edu.whut.springbear.course.service.util.exception.CourseException;
+import cn.edu.whut.springbear.course.common.model.pojo.vod.Subject;
+import cn.edu.whut.springbear.course.common.model.vo.vod.SubjectEeVo;
+import cn.edu.whut.springbear.course.common.util.exception.CourseException;
 import cn.edu.whut.springbear.course.service.vod.listener.SubjectListener;
 import cn.edu.whut.springbear.course.service.vod.mapper.SubjectEeVoMapper;
 import cn.edu.whut.springbear.course.service.vod.mapper.SubjectMapper;

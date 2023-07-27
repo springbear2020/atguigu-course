@@ -3,9 +3,9 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <modules>
-        <module>model</module>
         <module>service</module>
         <module>common</module>
+        <module>api</module>
     </modules>
 
     <parent>
@@ -81,6 +81,11 @@
                 <artifactId>vod_api</artifactId>
                 <version>2.1.4</version>
             </dependency>
+            <dependency>
+                <groupId>com.github.binarywang</groupId>
+                <artifactId>weixin-java-mp</artifactId>
+                <version>4.1.0</version>
+            </dependency>
 
             <!-- aliyun sdk -->
             <dependency>
@@ -108,12 +113,6 @@
                 <version>2.2.0.RELEASE</version>
                 <type>pom</type>
                 <scope>import</scope>
-            </dependency>
-            <!-- date time formatter -->
-            <dependency>
-                <groupId>joda-time</groupId>
-                <artifactId>joda-time</artifactId>
-                <version>2.10.1</version>
             </dependency>
 
             <!-- TODO what's the functions of following dependencies? -->

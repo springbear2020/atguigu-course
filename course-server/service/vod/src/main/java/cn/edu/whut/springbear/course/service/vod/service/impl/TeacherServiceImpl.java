@@ -1,7 +1,7 @@
 package cn.edu.whut.springbear.course.service.vod.service.impl;
 
-import cn.edu.whut.springbear.course.model.pojo.vod.Teacher;
-import cn.edu.whut.springbear.course.model.vo.vod.TeacherQueryVo;
+import cn.edu.whut.springbear.course.common.model.pojo.vod.Teacher;
+import cn.edu.whut.springbear.course.common.model.vo.vod.TeacherQueryVo;
 import cn.edu.whut.springbear.course.service.vod.mapper.TeacherMapper;
 import cn.edu.whut.springbear.course.service.vod.service.TeacherService;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;

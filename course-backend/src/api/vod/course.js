@@ -3,14 +3,6 @@ import request from '@/utils/request'
 const BASE_URL = '/admin/vod/course'
 
 export default {
-  // 查询课程分页数据
-  getCoursePageData(curPage, pageSize, conditions) {
-    return request({
-      url: `${BASE_URL}/page/${curPage}/${pageSize}`,
-      method: 'get',
-      params: conditions
-    })
-  },
   // 新增课程
   saveCourseInfo(courseInfo) {
     return request({
@@ -19,11 +11,11 @@ export default {
       data: courseInfo
     })
   },
-  // 查询课程
-  getCourseInfoById(id) {
+  // 删除课程
+  removeById(id) {
     return request({
-      url: `${BASE_URL}/get/${id}`,
-      method: 'get'
+      url: `${BASE_URL}/remove/${id}`,
+      method: 'delete'
     })
   },
   // 更新课程
@@ -41,11 +33,25 @@ export default {
       method: 'put'
     })
   },
-// 删除课程
-  removeById(id) {
+  // 查询课程
+  getCourseInfoById(id) {
     return request({
-      url: `${BASE_URL}/remove/${id}`,
-      method: 'delete'
+      url: `${BASE_URL}/get/${id}`,
+      method: 'get'
     })
   },
+  // 查询课程分页数据
+  getCoursePageData(curPage, pageSize, conditions) {
+    return request({
+      url: `${BASE_URL}/page/${curPage}/${pageSize}`,
+      method: 'get',
+      params: conditions
+    })
+  },
+  getAllCourse() {
+    return request({
+      url: `${BASE_URL}/list`,
+      method: 'get'
+    })
+  }
 }

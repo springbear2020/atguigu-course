@@ -178,4 +178,19 @@ public class CourseServiceImpl extends ServiceImpl<CourseMapper, Course> impleme
         course.setChapters(chapters);
         return course;
     }
+
+    @Override
+    public List<Course> getCourseList() {
+        List<Course> courseList = baseMapper.selectList(null);
+        for (Course course : courseList) {
+            // 获取课程教师信息
+            Teacher teacher = teacherService.getById(course.getTeacherId());
+            course.setTeacherName(teacher.getName());
+            course.setTeacherAvatar(teacher.getAvatar());
+            // 获取课程分类信息：一级分类和二级分类
+            course.setParentSubjectName(subjectMapper.getSubjectNameById(course.getSubjectParentId()));
+            course.setSubjectName(subjectMapper.getSubjectNameById(course.getSubjectId()));
+        }
+        return courseList;
+    }
 }

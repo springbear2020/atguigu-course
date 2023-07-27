@@ -8,10 +8,13 @@ import cn.edu.whut.springbear.course.common.util.Result;
 import cn.edu.whut.springbear.course.service.vod.service.CourseService;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiModelProperty;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 /**
  * <p>
@@ -69,6 +72,13 @@ public class CourseController {
             @ApiParam(name = "courseQueryVo", value = "额外查询条件") CourseQueryVo courseQueryVo) {
         Page<Course> coursePage = courseService.listCoursePageData(pageNum, pageSize, courseQueryVo);
         return coursePage.getRecords().isEmpty() ? Result.fail("查询课程分页数据失败", null) : Result.success("查询课程分页数据成功", coursePage);
+    }
+
+    @ApiModelProperty("查询所有课程及分类信息")
+    @GetMapping("list")
+    public Result listAllCourses() {
+        List<Course> list = courseService.getCourseList();
+        return list.isEmpty() ? Result.fail("查询所有课程信息失败", null) : Result.success("查询所有课程信息成功", list);
     }
 }
 

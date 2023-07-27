@@ -220,6 +220,34 @@ export const constantRoutes = [
     ]
   },
 
+  // live
+  {
+    path: '/live',
+    component: Layout,
+    redirect: '/live/list',
+    name: 'Live',
+    meta: {
+      title: '直播管理',
+      icon: 'el-icon-bangzhu'
+    },
+    alwaysShow: true,
+    children: [
+      {
+        path: 'list',
+        name: 'liveCourseList',
+        component: () => import('@/views/live/LiveCourseList'),
+        meta: { title: '直播列表', icon: 'el-icon-bangzhu' }
+      },
+      {
+        path: 'config/:id',
+        name: 'liveCourseConfig',
+        component: () => import('@/views/live/LiveCourseConfig'),
+        meta: { title: '直播配置' },
+        hidden: true
+      }
+    ]
+  },
+
   // 404 page must be placed at the end !!!
   { path: '*', redirect: '/404', hidden: true }
 ]

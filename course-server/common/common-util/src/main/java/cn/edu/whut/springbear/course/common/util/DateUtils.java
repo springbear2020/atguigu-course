@@ -31,4 +31,18 @@ public class DateUtils {
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         return dateFormat.format(date);
     }
+
+    /**
+     * 对比日期大小
+     *
+     * @param beginDate 开始日期
+     * @param endDate   结束日期
+     * @return true：endDate > beginDate
+     */
+    public static boolean dateCompare(Date beginDate, Date endDate) {
+        if (beginDate == null || endDate == null) {
+            return false;
+        }
+        return endDate.getTime() > beginDate.getTime();
+    }
 }

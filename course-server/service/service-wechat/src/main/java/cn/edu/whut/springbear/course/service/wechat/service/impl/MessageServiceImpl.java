@@ -1,9 +1,9 @@
 package cn.edu.whut.springbear.course.service.wechat.service.impl;
 
 
-import cn.edu.whut.springbear.course.client.course.CourseFeignClient;
 import cn.edu.whut.springbear.course.client.order.OrderFeignClient;
 import cn.edu.whut.springbear.course.client.user.UserFeignClient;
+import cn.edu.whut.springbear.course.client.vod.CourseFeignClient;
 import cn.edu.whut.springbear.course.common.model.pojo.order.OrderInfo;
 import cn.edu.whut.springbear.course.common.model.pojo.user.UserInfo;
 import cn.edu.whut.springbear.course.common.model.pojo.vod.Course;

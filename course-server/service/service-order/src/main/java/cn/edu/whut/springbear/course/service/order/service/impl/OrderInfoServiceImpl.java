@@ -1,7 +1,7 @@
 package cn.edu.whut.springbear.course.service.order.service.impl;
 
 import cn.edu.whut.springbear.course.client.activity.CouponFeignClient;
-import cn.edu.whut.springbear.course.client.course.CourseFeignClient;
+import cn.edu.whut.springbear.course.client.vod.CourseFeignClient;
 import cn.edu.whut.springbear.course.client.user.UserFeignClient;
 import cn.edu.whut.springbear.course.common.model.pojo.activity.CouponInfo;
 import cn.edu.whut.springbear.course.common.model.pojo.order.OrderDetail;

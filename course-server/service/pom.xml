@@ -18,6 +18,7 @@
         <module>service-activity</module>
         <module>service-user</module>
         <module>service-wechat</module>
+        <module>service-live</module>
     </modules>
 
     <properties>

@@ -20,7 +20,7 @@
     <dependencies>
         <dependency>
             <groupId>cn.edu.whut.springbear</groupId>
-            <artifactId>client-course</artifactId>
+            <artifactId>client-vod</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
         <dependency>

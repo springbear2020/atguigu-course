@@ -82,4 +82,11 @@ public interface CourseService extends IService<Course> {
      * @return 课程详情信息
      */
     Course getCourse(Long courseId);
+
+    /**
+     * 查询所有课程及其分类信息
+     *
+     * @return 所有课程信息列表
+     */
+    List<Course> getCourseList();
 }

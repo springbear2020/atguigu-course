@@ -7,6 +7,7 @@
       <li><router-link to="/order">订单管理</router-link></li>
       <li><router-link to="/activity">营销管理</router-link></li>
       <li><router-link to="/wechat">公众号管理</router-link></li>
+      <li><router-link to="/live">直播管理</router-link></li>
     </ol>
   </div>
 </template>

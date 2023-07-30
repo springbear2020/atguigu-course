@@ -29,11 +29,11 @@
 
    - course-server/service/service-user/\*\*/application.properties：修改 [微信公众号测试号](https://mp.weixin.qq.com/debug/cgi-bin/sandbox?t=sandbox/login) 的应用 ID 信息和应用密钥以及用户同意授权个人信息后的回调地址。
 
-     注意此回调地址需为公网地址才能被微信平台识别，**并且需要在微信公众号测试号中配置网页账号授权回调页面域名，详见 1.4。**若不修改则手机端微信公众号中的相关功能均不可用。
+     注意此回调地址需为公网地址才能被微信平台识别，**并且需要在微信公众号测试号中配置网页账号授权回调页面域名，详见 1.4。** 若不修改则手机端微信公众号中的相关功能均不可用。
 
    - course-server/service/service-vod/\*\*/application.properties：修改 [腾讯云对象存储](https://cloud.tencent.com/product/cos) 的存储空间信息和 [腾讯云视频点播](https://cloud.tencent.com/product/vod) 服务的应用 ID 信息。若不修改则腾讯云相关图片存储服务不可用，课程小节视频不能上传和查看。
 
-   - course-server/service/service-wechat/\*\*/application.properties：修改微信公众号测试号的配置信息以及接口配置信息，**并且需要在微信公众号测试号中填写接口配置信息，详见 1.4。**若不修改则手机端微信公众号一切功能异常。同时还需要修改微信公众号页面的服务器地址，也即 course-mobile 项目的部署地址，此地址需为公网地址以供微信后台调用，若不修改则微信公众号中的查看课程信息功能异常，不能跳转到任何页面。
+   - course-server/service/service-wechat/\*\*/application.properties：修改微信公众号测试号的配置信息以及接口配置信息，**并且需要在微信公众号测试号中填写接口配置信息，详见 1.4。** 若不修改则手机端微信公众号一切功能异常。同时还需要修改微信公众号页面的服务器地址，也即 course-mobile 项目的部署地址，此地址需为公网地址以供微信后台调用，若不修改则微信公众号中的查看课程信息功能异常，不能跳转到任何页面。
 
    > 注：service-user 和 service-wechat 中用到的公网域名地址可通过配置内网穿透的方式实现，具体可参看 [Ngrok](https://ngrok.cc/) 内网转发工具。具体来说，需要配置两个内网穿透地址：
 
@@ -65,7 +65,7 @@
 2. 打开工程：使用 WebStorm 开发工具打开 course-backend 后台管理系统模块。
 3. 安装依赖：在控制台使用 npm install 命令安装工程所需依赖。
 4. 修改配置：
-   - course-backend/.env.development：修改该文件中的  VUE_APP_BASE_API 变量的值为后端服务系统网关地址，默认为：http://localhost:8888，即 1.1 后端服务系统中网关模块的 IP 地址和端口信息。
+   - course-backend/.env.development：修改该文件中的  VUE_APP_BASE_API 变量的值为后端服务系统网关地址，默认为：http://localhost:8888， 即 1.1 后端服务系统中网关模块的 IP 地址和端口信息。
 5. 启动系统：在控制台使用 npm run dev 命令启动工程，启动成功即可进入后台管理系统登录页。
 
 ## 1.3 移动应用系统

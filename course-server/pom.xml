@@ -17,10 +17,10 @@
 
     <modelVersion>4.0.0</modelVersion>
     <groupId>cn.edu.whut.springbear</groupId>
-    <artifactId>course-backend</artifactId>
+    <artifactId>course-server</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>course-backend</name>
-    <description>backend service for the course system</description>
+    <name>course-server</name>
+    <description>server service for the course system</description>
     <packaging>pom</packaging>
 
     <properties>

@@ -1,12 +1,12 @@
 import Vue from "vue";
 import Vuex from "vuex";
+import {BASE_REQUEST_URL} from "../utils/request";
 
 Vue.use(Vuex);
 
 export default new Vuex.Store({
     state: {
-        // TODO 微信后台请求地址
-        baseURL: 'http://course.5gzvip.91tunnel.com'
+        baseURL: BASE_REQUEST_URL
     },
     mutations: {},
     actions: {},

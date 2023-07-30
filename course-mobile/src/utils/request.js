@@ -1,9 +1,11 @@
 import axios from 'axios'
 
+// TODO replace the base request url when environment changed
+export const BASE_REQUEST_URL = 'http://course.5gzvip.91tunnel.com'
+
 // 创建 axios 实例
 const service = axios.create({
-    // TODO base url
-    baseURL: 'http://course.5gzvip.91tunnel.com',
+    baseURL: BASE_REQUEST_URL,
     timeout: 30000
 })
 

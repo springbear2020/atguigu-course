@@ -6,8 +6,7 @@ const state = {
     withoutAnimation: false
   },
   device: 'desktop',
-  // TODO 后台网关地址
-  url: 'http://localhost:8888'
+  url: process.env.VUE_APP_BASE_API
 }
 
 const mutations = {

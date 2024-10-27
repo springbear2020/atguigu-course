@@ -19,9 +19,9 @@
 -- Current Database: `course_live`
 --
 
-CREATE DATABASE /*!32312 IF NOT EXISTS*/ `course_live` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+CREATE DATABASE /*!32312 IF NOT EXISTS*/ `atguigu_course_live` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
 
-USE `course_live`;
+USE `atguigu_course_live`;
 
 --
 -- Table structure for table `live_course`

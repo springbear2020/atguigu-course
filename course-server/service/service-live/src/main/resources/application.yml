@@ -1,12 +1,12 @@
 server:
-  port: 8086
+  port: 8812
 spring:
   application:
     name: course-service-live
   profiles:
     active: dev
   datasource:
-    url: jdbc:mysql://localhost:3306/course_live?characterEncoding=utf-8&useSSL=false
+    url: jdbc:mysql://localhost:3306/atguigu_course_live?characterEncoding=utf-8&useSSL=false
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: root
     password: root
@@ -16,7 +16,7 @@ spring:
   cloud:
     nacos:
       discovery:
-        server-addr: 127.0.0.1:8848
+        server-addr: localhost:8848
   main:
     allow-bean-definition-overriding: true
 mybatis-plus:

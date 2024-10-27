@@ -19,9 +19,9 @@
 -- Current Database: `course_activigy`
 --
 
-CREATE DATABASE /*!32312 IF NOT EXISTS*/ `course_activity` /*!40100 DEFAULT CHARACTER SET utf8 */ /*!80016 DEFAULT ENCRYPTION='N' */;
+CREATE DATABASE /*!32312 IF NOT EXISTS*/ `atguigu_course_activity` /*!40100 DEFAULT CHARACTER SET utf8 */ /*!80016 DEFAULT ENCRYPTION='N' */;
 
-USE `course_activity`;
+USE `atguigu_course_activity`;
 
 --
 -- Table structure for table `coupon_info`

@@ -19,9 +19,9 @@
 -- Current Database: `course_acl`
 --
 
-CREATE DATABASE /*!32312 IF NOT EXISTS*/ `course_acl` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+CREATE DATABASE /*!32312 IF NOT EXISTS*/ `atguigu_course_acl` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
 
-USE `course_acl`;
+USE `atguigu_course_acl`;
 
 --
 -- Table structure for table `admin`

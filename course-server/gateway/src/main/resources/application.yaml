@@ -1,12 +1,12 @@
 server:
-  port: 8888
+  port: 8810
 spring:
   application:
     name: course-gateway
   cloud:
     nacos:
       discovery:
-        server-addr: 127.0.0.1:8848
+        server-addr: localhost:8848
     gateway:
       discovery:
         locator:

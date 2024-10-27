@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 // TODO replace the base request url when environment changed
-export const BASE_REQUEST_URL = 'http://course.5gzvip.91tunnel.com'
+export const BASE_REQUEST_URL = '/atguigu-course-gateway-api'
 
 // 创建 axios 实例
 const service = axios.create({

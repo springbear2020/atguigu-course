@@ -24,7 +24,7 @@ module.exports = {
    * In most cases please use '/' !!!
    * Detail: https://cli.vuejs.org/config/#publicpath
    */
-  publicPath: '/',
+  publicPath: './',
   outputDir: 'dist',
   assetsDir: 'static',
   lintOnSave: false,
@@ -32,6 +32,12 @@ module.exports = {
   devServer: {
     port: port,
     open: true,
+    proxy: {
+      '/atguigu-course-gateway-api': {
+        target: 'http://localhost:8810',
+        pathRewrite: {'^/atguigu-course-gateway-api': ''}
+      },
+    },
     overlay: {
       warnings: false,
       errors: true

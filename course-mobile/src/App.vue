@@ -1,6 +1,10 @@
 <template>
   <div id="app">
     <router-view/>
+
+    <van-tabbar v-model="active" route>
+      <van-tabbar-item icon="home-o" to="/">主页</van-tabbar-item>
+    </van-tabbar>
   </div>
 </template>
 
@@ -13,7 +17,11 @@ export default {
     // 进入任何页面前都需要进行微信授权
     this.wechatAuthorization();
   },
-
+  data() {
+    return {
+      active: 0
+    };
+  },
   computed: {
     ...mapState(['baseURL'])
   },
@@ -21,23 +29,23 @@ export default {
   methods: {
     // 处理微信授权登录逻辑
     wechatAuthorization() {
-      let token = this.getQueryString('token') || '';
+      // let token = this.getQueryString('token') || '';
       // 先判断本次请求的路径中是否含有 token 信息，若存在则存入本地 localStorage
-      if (token !== '') {
-        window.localStorage.setItem('token', token);
-      }
+      // if (token !== '') {
+      //   window.localStorage.setItem('token', token);
+      // }
 
       // TODO remove the next line
       // window.localStorage.removeItem('token')
 
       // 访问所有页面都必须登录
-      token = window.localStorage.getItem('token') || '';
+      // token = window.localStorage.getItem('token') || '';
 
       // 请求服务器获取 token 信息，token 获取成功重定向到到请求的页面 from
-      if (token === '') {
-        let from = window.location.href.replace('#', 'placeholder')
-        window.location = this.baseURL + '/api/user/auth?from=' + from
-      }
+      // if (token === '') {
+      //   let from = window.location.href.replace('#', 'placeholder')
+      //   window.location = this.baseURL + '/api/user/auth?from=' + from
+      // }
     },
 
     // 获取地址栏请求路径中的参数值

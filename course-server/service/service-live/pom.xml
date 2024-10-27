@@ -39,6 +39,8 @@
     </dependencies>
 
     <build>
+        <finalName>atguigu-course-live</finalName>
+
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>

@@ -41,6 +41,8 @@
     </dependencies>
 
     <build>
+        <finalName>atguigu-course-wechat</finalName>
+
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
